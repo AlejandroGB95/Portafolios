@@ -109,5 +109,41 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowUp') rotate();
 });
 
+//para moverlo en movil
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+window.addEventListener("touchstart", e => {
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+});
+
+window.addEventListener("touchend", e => {
+  const touch = e.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaY = touch.clientY - touchStartY;
+
+  const threshold = 30; // Mínimo movimiento para detectar swipe
+
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    // Swipe horizontal
+    if (deltaX > threshold) {
+      moveRight();
+    } else if (deltaX < -threshold) {
+      moveLeft();
+    }
+  } else {
+    // Swipe vertical
+    if (deltaY > threshold) {
+      moveDown();
+    } else if (deltaY < -threshold) {
+      rotate();
+    }
+  }
+});
+
+
 draw();
 const gameLoop = setInterval(moveDown, 800);
