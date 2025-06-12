@@ -43,6 +43,38 @@ window.addEventListener("keydown", (e) => {
   snake.changeDirection(direction);
 });
 
+//movimiento movil pantalla tactil
+let touchStartX = 0;
+let touchStartY = 0;
+
+window.addEventListener("touchstart", e => {
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+});
+
+window.addEventListener("touchend", e => {
+  const touch = e.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaY = touch.clientY - touchStartY;
+
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    // Movimiento horizontal
+    if (deltaX > 30) {
+      snake.changeDirection("right");
+    } else if (deltaX < -30) {
+      snake.changeDirection("left");
+    }
+  } else {
+    // Movimiento vertical
+    if (deltaY > 30) {
+      snake.changeDirection("down");
+    } else if (deltaY < -30) {
+      snake.changeDirection("up");
+    }
+  }
+});
+
 function resetGame() {
   score = 0;
   document.getElementById("score").innerText = `Puntaje: ${score}`;
@@ -147,6 +179,7 @@ function Food() {
     ctx.shadowBlur = 0;
   };
 }
+
 
 
 // Iniciar el juego la primera vez
