@@ -70,12 +70,14 @@ const drops = Array(Math.floor(columns)).fill(1);
 let hue = 0;
 
 function draw() {
-  // Fondo con transparencia
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  const isLightMode = document.body.classList.contains("light-mode");
+
+  // Cambiar color del fondo según modo
+  ctx.fillStyle = isLightMode ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Cambiar color con el tiempo
-  ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+  // Cambiar color del texto Matrix
+  ctx.fillStyle = isLightMode ? `hsl(${hue}, 100%, 30%)` : `hsl(${hue}, 100%, 50%)`;
   ctx.font = `${fontSize}px monospace`;
 
   for (let i = 0; i < drops.length; i++) {
@@ -89,7 +91,7 @@ function draw() {
     drops[i]++;
   }
 
-  hue = (hue + 1) % 360; // Aumentar matiz para cambiar color gradualmente
+  hue = (hue + 1) % 360;
 }
 
 setInterval(draw, 33); // ~30 FPS
