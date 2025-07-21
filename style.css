@@ -367,26 +367,3 @@ body {
   50% { opacity: 1; }
 }
 
-/* portatil con un dinasurio corriendo?*/
-.dino-inside {
-  position: absolute;
-  bottom: 20%; 
-  left: 10%;
-  width: 48px;  /* ancho de un frame */
-  height: 48px; /* alto de un frame */
-  background: url('t-rex-pro-sprite.png') left center;
-  background-size: cover;
-  image-rendering: pixelated;
-  animation: dino-walk 1s steps(4) infinite, dino-slide 4s linear infinite;
-}
-
-@keyframes dino-walk {
-  from { background-position: 0 0; }
-  to { background-position: -192px 0; } /* 48px * 4 frames */
-}
-
-@keyframes dino-slide {
-  0% { left: 10%; }
-  50% { left: 70%; }
-  100% { left: 10%; }
-}
