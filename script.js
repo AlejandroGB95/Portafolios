@@ -107,3 +107,48 @@ document.addEventListener('mousemove', (e) => {
   const y = (window.innerHeight / 2 - e.clientY) / 50;
   subtitle.style.transform = `translateX(${x}px) translateY(${y}px)`;
 });
+
+// maquina de escribir
+
+  const textArray = [
+    'console.log("Bienvenido");',
+    'print("Soy Alejandro")',
+    'console.log("Hola mundo");',
+    'print("Python dev!")',
+    'let dev = "FullStack";',
+    '<html>Frontend</html>',
+    'System.out.println("Java");'
+  ];
+
+  const typedText = document.getElementById('typed-text');
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 80;
+  const deletingSpeed = 40;
+  const pauseBetween = 1500;
+
+  function type() {
+    const currentText = textArray[textIndex];
+    if (isDeleting) {
+      typedText.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % textArray.length;
+      }
+    } else {
+      typedText.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, pauseBetween);
+        return;
+      }
+    }
+    const delay = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(type, delay);
+  }
+
+  document.addEventListener('DOMContentLoaded', type);
+

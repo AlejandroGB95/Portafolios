@@ -11,18 +11,73 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+
+
   <canvas id="matrixCanvas"></canvas>
   <div class="grid-bg"></div>
-    <header class="hero">
+   <nav class="main-nav" aria-label="Menú de navegación principal">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contactos</a></li>
+      <!-- Se añade barra de navegación para llegar a todos los apartados -->
+      <li><a href="cv.html" target="_blank" id="cv-button" aria-label="Ver currículum">Curriculum📄</a></li>
+      <!-- Botón para ir al currículum online -->
+    </ul>
+    <button id="mode-toggle" aria-label="Alternar modo claro/oscuro">🌗</button>
+      <!-- Botón claro/oscuro -->
+  </nav>
+    <header id="inicio" class="hero">
       <h1 class="intro-text">Alejandro García Benítez</h1>
       <p class="subtitle futuristic-text">Técnico Superior en Desarrollo de Aplicaciones Web</p>
-      <p class="subtitle futuristic-text">Desarrollador FullStack Developer Junior <a href="cv.html" target="_blank" id="cv-button" aria-label="Ver currículum">📄</a></p>
-      <button id="mode-toggle" aria-label="Alternar modo claro/oscuro">🌗</button>
-      <!-- Botón para ir al currículum online -->
-      
+      <p class="subtitle futuristic-text">Desarrollador FullStack Developer Junior</p>
+
+
+  <div class="nav-right">
+    <!-- Portátil SVG -->
+    <div class="laptop-container">
+      <svg class="laptop-svg" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cuerpo -->
+        <rect x="4" y="8" width="56" height="32" rx="4" ry="4" fill="#111" stroke="#0ff" stroke-width="2"/>
+        <!-- Pantalla -->
+        <rect x="6" y="10" width="52" height="28" rx="2" ry="2" class="screen-bg"/>
+        <!-- Base inferior -->
+        <rect x="0" y="40" width="64" height="4" fill="#0ff"/>
+      </svg>
+
+      <!-- Texto animado encima -->
+      <div class="laptop-screen-text">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </div>
+    </div>
+
+  </div>
+
+
 
     </header>
-  <section class="skills">
+
+  <section id="sobre-mi" class="projects">
+    <!-- Se añade un sobre mi para ver un poco como soy como persona y como trabajador creo que es importante -->
+    <h2>Sobre mi</h2>
+     <div class="project-carousel">
+        <div class="project-card">
+          <div class="project">
+          <p>
+           "Soy un Desarrollador FullStack Junior recién graduado en DAW, impulsado por una profunda pasión por la creación de soluciones robustas tanto en front-end como en back-end.
+
+            Tengo un manejo sólido de tecnologías clave como HTML, CSS, JavaScript, Java, SQL, PHP y Python, complementado con experiencia en frameworks modernos como Bootstrap y React.
+
+            Me caracterizo por mi paciencia, mi ética de trabajo y una determinación inquebrantable para superar desafíos y encontrar soluciones eficientes. Además, valoro enormemente el trabajo en equipo, el aprendizaje continuo y la capacidad de aportar siempre con una actitud positiva.
+
+            Busco una oportunidad para seguir creciendo profesionalmente, expandir mis conocimientos y contribuir activamente con mi esfuerzo e ideas en proyectos que generen un impacto significativo."</p>
+        </div>
+      </div>
+  </section>
+
+  <section id="habilidades" class="skills">
     <h2>Habilidades</h2>
     <div class="skill-bar">
       <span>HTML</span>
@@ -62,7 +117,8 @@
     </div>
   </section>
 
-  <section class="projects">
+
+  <section id="proyectos" class="projects">
      <h2>Proyectos</h2>
     <div class="project-carousel">
         <div class="project-card">
@@ -95,10 +151,10 @@
       </div>
     </div>
     <h2>Contacto</h2>
-    <div class="project-carousel">
+    <div id="contacto" class="project-carousel">
       <div class="project-card"><a href="https://github.com/AlejandroGB95" target="_blank">GitHub</a></div>
       <div class="project-card"><a href="https://www.linkedin.com/in/alejandro-garc%C3%ADa-ben%C3%ADtez-desarrolladorweb/" target="_blank">LinkedIn</a></div>
-      <div class="project-card"><a href="https://www.infojobs.net/candidate/cv/view/index.xhtml?codeCv=81ec6867-4cc4-4104-9d10-db7d6bb655c9&dgv=1447284916642922793" target="_blank">InfoJobs</a></div>
+      <div class="project-card"><a href="https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=7947736841809940860" target="_blank">InfoJobs</a></div>
       <div class="project-card"><a href="mailto:alexdack95@gmail.com">alexdack95@gmail.com</a></div>
     </div>
   </section>
