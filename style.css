@@ -241,82 +241,204 @@ body.light-mode #mode-toggle {
   transition: transform 0.1s ease-out;
 }
 
-/* Estilo para el boton del cv*/
-#cv-button {
+/* --- Estilos Generales (Enfoque "Desktop First") --- */
 
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.15rem; 
-  text-decoration: none;
-  color: #0ff;
-  transition: transform 0.2s ease;
+/* Estilo para el botón del CV */
+#cv-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    text-decoration: none;
+    color: #0ff; /* Tu color deseado */
+    transition: transform 0.2s ease;
 }
 
 #cv-button:hover {
-  transform: scale(3.2);
+    transform: scale(1.15); /* Escala reducida para mejor usabilidad móvil si aparece */
+    /* Considera si este efecto hover es demasiado grande para dispositivos móviles.
+       En dispositivos táctiles, no hay estado hover, por lo que podría no ser un problema.
+       Si quieres mantenerlo, asegúrate de que no rompa el diseño. */
 }
-
 
 /* Para evitar que el contenido quede oculto detrás del nav fijo */
 body {
-  padding-top: 10px; /* ajusta según altura de nav */
+    padding-top: 70px; /* Ajusta este valor según la altura real de tu nav fijo */
+    /* Padding por defecto para escritorio. Podríamos ajustarlo para móvil si la altura de tu nav cambia. */
 }
 
 .main-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  font-family: 'Orbitron', sans-serif;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
-  display: flex;               /* Flexbox */
-  justify-content: space-between; /* Espacio entre enlaces y botón */
-  align-items: center;         /* Centrar vertical */
-  padding: 0.5rem 2rem;        /* Espaciado horizontal */
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Espacio entre enlaces y botón */
+    align-items: center; /* Centrar vertical */
+    padding: 1rem 2rem; /* Espaciado horizontal */
 }
 
 .main-nav ul {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    display: flex; /* Mostrar en una fila en escritorio */
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .main-nav ul li {
-  margin: 0 1.5rem;
+    margin: 0 1.5rem;
 }
 
 .main-nav ul li a {
-  color: #0ff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+    color: #0ff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
 .main-nav ul li a:hover,
 .main-nav ul li a:focus {
-  color: #fff;
-  text-shadow: 0 0 8px #0ff;
+    color: #fff;
+    text-shadow: 0 0 8px #0ff;
 }
 
 /* Botón modo oscuro */
 #mode-toggle {
-  padding: 0.5rem 1rem;
-  background: #111;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background 0.3s, color 0.3s;
-  font-size: 1.2rem;
-  user-select: none;
-  margin-top: 0px;
+    padding: 0.5rem 1rem;
+    background: #111;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
+    font-size: 1.2rem;
+    user-select: none;
+    margin-top: 0px; /* Asegúrate de que esto sea 0 para la alineación en escritorio */
+}
+
+/* --- Estilos Específicos para Móviles (usando Media Query) --- */
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 0.8rem 1rem; /* Ajustar el padding para pantallas más pequeñas */
+        /* Las propiedades de Flexbox se mantienen en gran medida, pero el UL interno cambiará */
+    }
+
+    /* Ocultar la lista de navegación por defecto en móvil */
+    .main-nav ul {
+        display: none; /* Ocultar por defecto */
+        flex-direction: column; /* Apilar elementos verticalmente cuando sean visibles */
+        width: 100%; /* Ocupar todo el ancho del padre */
+        position: absolute; /* Posición relativa al main-nav */
+        top: 100%; /* Colocarlo justo debajo de la barra main-nav */
+        left: 0;
+        background-color: rgba(10, 10, 10, 0.95); /* Fondo ligeramente más oscuro para el desplegable */
+        backdrop-filter: blur(15px); /* Más desenfoque para el desplegable */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        z-index: 999; /* Z-index ligeramente inferior al de .main-nav, pero superior al contenido */
+        max-height: 0; /* Estado inicial colapsado */
+        overflow: hidden; /* Ocultar contenido desbordado */
+        transition: max-height 0.3s ease-out; /* Transición suave para abrir/cerrar */
+    }
+
+    /* Mostrar la lista de navegación cuando se añade la clase 'active' con JavaScript */
+    .main-nav ul.active {
+        display: flex; /* Mostrarlo */
+        max-height: 500px; /* Un valor mayor que la altura máxima posible del menú */
+        /* Esto crea el efecto de deslizamiento hacia abajo. Ajusta si tu menú es mucho más alto. */
+    }
+
+    .main-nav ul li {
+        margin: 0; /* Eliminar márgenes horizontales */
+        width: 100%; /* Hacer que cada elemento de la lista ocupe todo el ancho */
+        text-align: center; /* Centrar el texto */
+    }
+
+    .main-nav ul li a {
+        padding: 15px 0; /* Más padding para facilitar el toque */
+        font-size: 1.2rem; /* Fuente ligeramente más grande para legibilidad */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+    }
+
+    .main-nav ul li:last-child a {
+        border-bottom: none; /* Sin borde para el último elemento */
+    }
+
+    /* Hacer que el botón de CV se parezca a otros elementos del menú en móvil */
+    #cv-button {
+        width: 100%; /* Ocupar todo el ancho */
+        padding: 15px 0;
+        font-size: 1.2rem;
+        /* Restablecer la transformación hover para móvil si se desea, o dejar que herede el nuevo valor de transformación */
+        transform: none; /* Eliminar la transformación hover de escritorio en móvil */
+    }
+    #cv-button:hover {
+        transform: none; /* Asegurarse de que no haya una gran escala al pasar el ratón en móvil */
+    }
+
+
+    /* Mostrar el botón de alternar el menú hamburguesa en móvil */
+    .menu-toggle {
+        display: block; /* Hacer visible el botón */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        position: relative; /* Para controlar el z-index */
+        z-index: 1001; /* Asegurarse de que esté encima del menú desplegable */
+        /* Estilos para las líneas reales de tu hamburguesa */
+        width: 30px; /* Ancho de toda el área del icono de hamburguesa */
+        height: 30px; /* Altura de toda el área del icono de hamburguesa */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    /* Líneas del icono de hamburguesa */
+    .hamburger-icon {
+        display: block;
+        width: 25px; /* Ancho de cada línea */
+        height: 3px; /* Grosor de cada línea */
+        background-color: #0ff; /* Color de las líneas (coincide con el color de tu enlace) */
+        transition: all 0.3s ease; /* Transición suave para la animación */
+    }
+
+    /* Animación para el icono de hamburguesa cuando está activo (opcional pero agradable) */
+    .menu-toggle[aria-expanded="true"] .hamburger-icon:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger-icon:nth-child(2) {
+        opacity: 0; /* Ocultar la línea del medio */
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger-icon:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Ajustar la posición del botón de alternar modo en móvil */
+    #mode-toggle {
+        margin-left: auto; /* Empujarlo a la derecha, lejos del botón de menú */
+        font-size: 1.5rem; /* Icono ligeramente más grande */
+        padding: 0.5rem; /* Ajustar el padding si es necesario */
+    }
+
+    /* Ajustar el padding del body para el nav fijo en móvil si es necesario */
+    body {
+        padding-top: 65px; /* Ajusta si la altura de tu nav móvil es diferente */
+    }
+}
+
+/* Opcional: Estilo para evitar el scroll en el body cuando el menú está abierto */
+body.no-scroll {
+    overflow: hidden;
 }
 
 /* portatil pequeño estara chulo?*/
