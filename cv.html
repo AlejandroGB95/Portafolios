@@ -17,6 +17,7 @@
         <p>Ronda-(Málaga)</p>
         <p>Tel: +34 666971439</p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/alejandro-garc%C3%ADa-ben%C3%ADtez-desarrolladorweb/">LinkedIn</a></p>
+        <p>TecnoEmpleo: <a href="https://www.tecnoempleo.com/profesionales/curriculum.php?idversion_curri=1087978">TecnoEmpleo</a></p>
         <p>Infojobs: <a href="https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=7947736841809940860">InfoJobs</a></p>
         <p>GitHub: <a href="https://github.com/AlejandroGB95">GitHub</a></p>
       </div>
@@ -25,7 +26,13 @@
     <div class="section">
       <h2>Perfil Personal</h2>
       <p></p>
-    </div>Desarrollador FullStack Developer Junior recién graduado en DAW con pasión por la programación front-end y back-end. Con conocimientos en <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Java</b>, <b>Sql</b>, <b>PHP</b>, <b>Python</b> y Frameworks como <b>Boostrap</b>, <b>React</b>. Busco formar parte de un equipo donde pueda seguir aprendiendo y aportar soluciones creativas.
+    </div>Soy un Desarrollador FullStack Junior recién graduado en DAW, impulsado por una profunda pasión por la creación de soluciones robustas tanto en front-end como en back-end.
+
+            Tengo un manejo sólido de tecnologías clave como HTML5, CSS3, JavaScript, Java, SQL, PHP, Django, Jquery y Python, complementado con experiencia en frameworks modernos como Bootstrap y React.
+
+            Me caracterizo por mi paciencia, mi ética de trabajo y una determinación inquebrantable para superar desafíos y encontrar soluciones eficientes. Además, valoro enormemente el trabajo en equipo, el aprendizaje continuo y la capacidad de aportar siempre con una actitud positiva.
+
+            Busco una oportunidad para seguir creciendo profesionalmente, expandir mis conocimientos y contribuir activamente con mi esfuerzo e ideas en proyectos que generen un impacto significativo.
 
     <div class="section">
     <h2>Interes</h2>
@@ -52,16 +59,27 @@
       <p><strong>Educación Secundaria Obligatoria (E.S.O)</strong> — Centro de Estudios I.E.S Perez de Guzmán (2014)</p>
     </div>
 
-     <div class="section">
-      <h2>Formación Específica (Cursos)</h2>
-      <h2>Planes de Formación del SEPE</h2>
-      <p><strong>Curso 30h</strong> Cloud Computing (Azure, Linux) 2024</p><br>
-      <h2>Andalucia Compromiso Digital</h2>
-      <p><strong>Curso 20h</strong> Iniciación a la Ciberseguridad (2022)</p>
-      <p><strong>Curso 20h</strong> Iniciación al BigData con Hadoop (2022)</p>
-      <p><strong>Curso 20h</strong> Iniciación en Python (2021)</p>
-      <p><strong>Curso 30h</strong> Iniciación al Diseño y a la programación Web (2020)</p>
-      <p><strong>Curso 25h</strong> Community Manager(2017)</p>
+    <div class="section">
+      <button  class="toggle-btn" onclick="toggleCursos(this)">
+        <h2>Formación Específica (Cursos) <span class="arrow">⮟</span></h2>
+      </button>
+      <div id="cursos-content" class="collapsed">
+        <h3 id="color1">Fundación Accenture</h3>
+        <p><strong>Curso 5h</strong> Iniciación Java (2025)</p><br>
+
+        <h3 id="color2">Santander Open Academy</h3>
+        <p><strong>Curso 2h</strong> Google: Inteligencia Artificial y productividad (2025)</p><br>
+
+        <h3 id="color3">Planes de Formación del SEPE</h3>
+        <p><strong>Curso 30h</strong> Cloud Computing (Azure, Linux) 2024</p><br>
+
+        <h3 id="color4">Andalucía Compromiso Digital</h3>
+        <p><strong>Curso 20h</strong> Iniciación a la Ciberseguridad (2022)</p>
+        <p><strong>Curso 20h</strong> Iniciación al BigData con Hadoop (2022)</p>
+        <p><strong>Curso 20h</strong> Iniciación en Python (2021)</p>
+        <p><strong>Curso 30h</strong> Iniciación al Diseño y a la programación Web (2020)</p>
+        <p><strong>Curso 25h</strong> Community Manager (2017)</p>
+      </div>
     </div>
 
     <div class="section">
@@ -79,5 +97,21 @@
       </div>
     </div>
   </div>
+  <script>
+    function toggleCursos(button) {
+      const content = document.getElementById('cursos-content');
+      const arrow = button.querySelector('.arrow');
+  
+      content.classList.toggle('expanded');
+
+      // Cambiar flecha
+    if (content.classList.contains('expanded')) {
+        arrow.textContent = '⮝';
+    } else {
+        arrow.textContent = '⮟';
+      } 
+  }
+
+  </script>
 </body>
 </html>

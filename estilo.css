@@ -26,6 +26,8 @@
     }
     h1 {
       margin: 0;
+      color: #007acc;
+      font-family: 'Orbitron', sans-serif;
     }
     h2 {
       color: #007acc;
@@ -50,3 +52,36 @@
       border-radius: 3px;
       font-size: 0.9rem;
     }
+
+  .toggle-btn {
+    background-color: transparent;
+    border-color: #f4f4f4;
+    width: 100%;
+    text-align: left;
+   
+    
+}
+
+#color1 {
+  color: aqua;
+}
+#color2 {
+  color:rgb(8, 204, 230);
+}
+
+#color3 {
+  color: rgb(0, 119, 255);
+}
+#color4 {
+  color: rgb(47, 0, 255);
+}
+
+#cursos-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+#cursos-content.expanded {
+  max-height: 1000px; /* grande para permitir el despliegue */
+}
