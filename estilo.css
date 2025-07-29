@@ -53,14 +53,12 @@
       font-size: 0.9rem;
     }
 
-  .toggle-btn {
-    background-color: transparent;
-    border-color: #f4f4f4;
-    width: 100%;
-    text-align: left;
-   
-    
-}
+    .toggle-btn {
+      background-color: transparent;
+      border-color: #f4f4f4;
+      width: 100%;
+      text-align: left;
+    }
 
 #color1 {
   color: aqua;
@@ -74,6 +72,11 @@
 }
 #color4 {
   color: rgb(47, 0, 255);
+}
+
+div span:hover {
+  color: red;
+  background-color: white;
 }
 
 #cursos-content {
