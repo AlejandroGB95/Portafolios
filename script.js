@@ -111,13 +111,17 @@ document.addEventListener('mousemove', (e) => {
 // maquina de escribir
 
   const textArray = [
+    'Print("Hola");',
     'console.log("Bienvenido");',
-    'print("Soy Alejandro")',
-    'console.log("Hola mundo");',
-    'print("Python dev!")',
-    'let dev = "FullStack";',
-    '<html>Frontend</html>',
-    'System.out.println("Java");'
+    'Soy Alejandro García',
+    'Desarrollador FullStack',
+    'Y estas en mi Portafolio',
+    'Espero que encuentres toda',
+    'la información necesaria',
+    'estare encantado de atenderte',
+    'abajo tienes un formulario',
+    'para contactarme <3',
+    'Muchas Gracias :D',
   ];
 
   const typedText = document.getElementById('typed-text');
