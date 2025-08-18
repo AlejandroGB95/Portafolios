@@ -191,3 +191,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+  const nombre = document.querySelector('#nombre-portafolio');
+  const texto = nombre.textContent;
+  nombre.textContent = '';
+
+  // Envolvemos cada letra en un span
+  texto.split('').forEach(letra => {
+    const span = document.createElement('span');
+    span.textContent = letra;
+    span.style.opacity = 0;
+    nombre.appendChild(span);
+  });
+
+  // Animamos cada letra
+  anime.timeline({loop: false})
+    .add({
+      targets: '#nombre-portafolio span',
+      opacity: [0,1],
+      translateY: ["1.1em", 0],
+      easing: "easeOutExpo",
+      duration: 600,
+      delay: (el, i) => 50 * i
+    });
+
+  // Subtítulo aparece después
+  anime({
+    targets: '.subtitle',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    delay: texto.length * 50 + 500,
+    duration: 1000,
+    easing: 'easeOutExpo'
+  });
+
+  // mensaje de gracias por enviar el formulario
+
+ const form = document.getElementById('form-contacto');
+  const successMessage = document.getElementById('form-success');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevenir envío inmediato
+
+    // Animar fade-in y desplazamiento desde abajo
+    successMessage.style.opacity = '1';
+    successMessage.style.transform = 'translateY(0)';
+
+    // Esperar 1 segundo antes de enviar realmente
+    setTimeout(() => {
+      form.submit(); // Envía el formulario a Formspree y redirige
+    }, 1000);
+  });
+
+
+const inputs = document.querySelectorAll('.contact-input, .contact-textarea');
+
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      if (input.checkValidity()) {
+        input.classList.add('valid');
+        input.classList.remove('invalid');
+      } else {
+        input.classList.add('invalid');
+        input.classList.remove('valid');
+      }
+    });
+  });
