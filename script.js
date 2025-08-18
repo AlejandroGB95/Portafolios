@@ -111,7 +111,7 @@ document.addEventListener('mousemove', (e) => {
 // maquina de escribir
 
   const textArray = [
-    'Print("Hola");',
+    'System.out.println("Hola");',
     'console.log("Bienvenido");',
     'Soy Alejandro García',
     'Desarrollador FullStack',
@@ -121,7 +121,7 @@ document.addEventListener('mousemove', (e) => {
     'estare encantado de atenderte',
     'abajo tienes un formulario',
     'para contactarme <3',
-    'Muchas Gracias :D',
+    'print(Muchas Gracias :D)',
   ];
 
   const typedText = document.getElementById('typed-text');
