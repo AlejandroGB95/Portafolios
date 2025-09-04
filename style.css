@@ -498,7 +498,7 @@ body.light-mode #mode-toggle {
   }
 }
 
-
+/* carta habilidades */
 .skill-card {
   perspective: 1000px;
   width: 180px;
@@ -568,6 +568,62 @@ body.light-mode #mode-toggle {
   transform: scale(1.05);
 }
 
+
+.skill-card {
+  perspective: 1000px;
+  width: 200px;       /* puedes ajustar */
+  height: 260px;      /* más alto para que quepa */
+}
+
+.skill-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.skill-card:hover .skill-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-front, .skill-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* evita que el texto se desborde */
+}
+
+.skill-back {
+  background: rgba(20, 20, 20, 0.95);
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.stars {
+  font-size: 1.2rem;
+  color: #FFD700;
+  margin: 5px 0;
+  white-space: nowrap; /* evita que salten de línea */
+}
+
+.level-text {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+
+/* carta habilidades */
 
 /* calendario estilo */
 
@@ -748,3 +804,5 @@ body.light-mode #mode-toggle {
 
 
 /* nuevo apartado sobre mi*/
+
+
