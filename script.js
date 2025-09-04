@@ -115,12 +115,10 @@ document.addEventListener('mousemove', (e) => {
     'Soy Alejandro García',
     'Desarrollador FullStack',
     'Y estas en mi Portafolio',
-    'Espero que encuentres toda',
-    'la información necesaria',
-    'estare encantado de atenderte',
-    'abajo tienes un formulario',
-    'para contactarme <3',
-    'Muchas Gracias :D',
+    'Tienes un formulario',
+    'abajo para contactarme <3',
+    'Gracias por visitarme :D',
+    'system.out.println("👨‍💻")',
   
   ];
 
@@ -156,6 +154,7 @@ document.addEventListener('mousemove', (e) => {
 
 document.addEventListener('DOMContentLoaded', type);
 
+// maquina de escribir final................................
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const mainMenu = document.getElementById('main-menu');
@@ -196,28 +195,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// nombre animación
   const nombre = document.querySelector('#nombre-portafolio');
-  const texto = nombre.textContent;
-  nombre.textContent = '';
+const texto = nombre.textContent;
+nombre.textContent = ''; // vaciar
 
-  // Envolvemos cada letra en un span
-  texto.split('').forEach(letra => {
-    const span = document.createElement('span');
-    span.textContent = letra;
-    span.style.opacity = 0;
-    nombre.appendChild(span);
+// Envolvemos cada letra en un span
+texto.split('').forEach(letra => {
+  const span = document.createElement('span');
+  span.textContent = letra;
+  span.style.display = 'inline-block';
+  span.style.opacity = 0;
+  nombre.appendChild(span);
+});
+
+// Animación Netflix con rebote
+anime.timeline({loop: false})
+  .add({
+    targets: '#nombre-portafolio span',
+    translateY: [50, 0], // entra desde abajo
+    opacity: [0, 1],
+    scale: [0.8, 1.2, 1], // rebote
+    easing: 'easeOutElastic(1, .8)',
+    duration: 1000,
+    delay: anime.stagger(100) // retrasa letra por letra
   });
 
-  // Animamos cada letra
-  anime.timeline({loop: false})
-    .add({
-      targets: '#nombre-portafolio span',
-      opacity: [0,1],
-      translateY: ["1.1em", 0],
-      easing: "easeOutExpo",
-      duration: 600,
-      delay: (el, i) => 50 * i
-    });
 
   // Subtítulo aparece después
   anime({
@@ -261,3 +264,138 @@ const inputs = document.querySelectorAll('.contact-input, .contact-textarea');
       }
     });
   });
+
+// nuevo calendario....................................
+  document.addEventListener("DOMContentLoaded", function () {
+  const calendarEl = document.getElementById("calendar");
+  if (calendarEl) {
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: "dayGridMonth",
+      locale: "es",
+      themeSystem: "standard",
+      events: [
+        { title: "Entrega Proyecto X", start: "2025-09-10" },
+        { title: "Entrevista Técnica", start: "2025-09-15" },
+        { title: "Reunión", start: "2025-09-20" }
+      ]
+    });
+    calendar.render();
+  }
+});
+
+// Obtener los eventos guardados en localStorage
+document.addEventListener('DOMContentLoaded', function() {
+  const calendarEl = document.getElementById('calendar');
+  if (!calendarEl) return; // Si no existe, salimos
+
+  const savedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    locale: 'es',
+    firstDay: 1, // Semana empieza lunes
+    selectable: true,
+    showNonCurrentDates: false,
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    },
+
+    events: savedEvents,
+    dateClick: function(info) {
+      const title = prompt('Introduce el nombre del evento:');
+      if (title) {
+        const newEvent = { title: title, start: info.dateStr, color: '#0ff' };
+        calendar.addEvent(newEvent);
+
+        savedEvents.push(newEvent);
+        localStorage.setItem('calendarEvents', JSON.stringify(savedEvents));
+      }
+    },
+    eventClick: function(info) {
+      const deleteEvent = confirm(`¿Quieres eliminar el evento "${info.event.title}"?`);
+      if (deleteEvent) {
+        info.event.remove();
+        const index = savedEvents.findIndex(e => e.title === info.event.title && e.start === info.event.startStr);
+        if (index > -1) {
+          savedEvents.splice(index, 1);
+          localStorage.setItem('calendarEvents', JSON.stringify(savedEvents));
+        }
+      }
+    }
+  });
+
+  calendar.render();
+});
+
+//estilo carta nuevas habilidades prueba....................................
+document.querySelectorAll(".skill-card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("active");
+  });
+});
+
+
+
+// prueba de la hora y geolacaliza donde esta el usuario
+// Actualiza la hora del PC
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2,'0');
+  const minutes = now.getMinutes().toString().padStart(2,'0');
+  document.getElementById('time').textContent = `${hours}:${minutes}`;
+}
+
+// Llamar al cargar y cada minuto
+updateClock();
+setInterval(updateClock, 60000);
+
+// Detecta la ubicación
+function getLocation() {
+  const locationEl = document.getElementById('location');
+  
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        // API de OpenStreetMap para convertir coordenadas a ciudad
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`)
+          .then(res => res.json())
+          .then(data => {
+            const city = data.address.city || data.address.town || data.address.village || "Ubicación desconocida";
+            locationEl.textContent = city;
+          })
+          .catch(() => {
+            locationEl.textContent = "Ubicación desconocida";
+          });
+      },
+      () => {
+        locationEl.textContent = "Ubicación no disponible";
+      }
+    );
+  } else {
+    locationEl.textContent = "Geolocalización no soportada";
+  }
+}
+// Detecta la ubicación
+// Llamar la función
+getLocation();
+
+//nuevo apartado sobre mi 
+gsap.utils.toArray('.about-text p').forEach((block, i) => {
+  gsap.from(block, {
+    scrollTrigger: {
+      trigger: block,
+      start: "top 80%",
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    delay: i * 0.2,
+    ease: "power2.out"
+  });
+});
+//nuevo apartado sobre mi 

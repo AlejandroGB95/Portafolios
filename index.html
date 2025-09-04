@@ -10,6 +10,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script defer src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- CDN FullCalendar -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <!-- CDN FullCalendar -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+
 </head>
 <body>
 
@@ -17,66 +24,91 @@
   <div class="grid-bg"></div>
    <nav class="main-nav" aria-label="Menú de navegación principal">
     <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="cv.html" target="_blank" id="cv-button" aria-label="Ver currículum">Curriculum📄</a></li>
+      <li><a href="#inicio">🏠Inicio </a></li>
+      <li><a href="cv.html" target="_blank" id="cv-button" aria-label="Ver currículum">📄Curriculum</a></li>
       <!-- Botón para ir al currículum online -->
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contactos</a></li>
-      <li><a href="#formulario">Formulario</a></li>
+      <li><a href="#sobre-mi">👤Sobre mí</a></li>
+      <li><a href="#habilidades">💻Habilidades</a></li>
+      <li><a href="#proyectos">📂Proyectos</a></li>
+      <li><a href="#contacto">✉️Contactos</a></li>
+      <li><a href="#formulario">📝Formulario</a></li>
+      <li><a href="#calendario">📅Calendario</a></li>
       <!-- Se añade barra de navegación para llegar a todos los apartados -->
     </ul>
-    <button id="mode-toggle" aria-label="Alternar modo claro/oscuro">🌗</button>
-    
-      <!-- Botón claro/oscuro -->
-  </nav>
-    <header id="inicio" class="hero">
-      <h1 class="intro-text" id="nombre-portafolio">Alejandro García Benítez</h1>
-      <p class="subtitle futuristic-text" class="subtitle">Desarrollador FullStack Developer Junior | Portafolio</p>
-
-
-  <div class="nav-right">
-    <!-- Portátil SVG -->
-    <div class="laptop-container">
-      <svg class="laptop-svg" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">
-        <!-- Cuerpo -->
-        <rect x="4" y="8" width="56" height="32" rx="4" ry="4" fill="#111" stroke="#0ff" stroke-width="2"/>
-        <!-- Pantalla -->
-        <rect x="6" y="10" width="52" height="28" rx="2" ry="2" class="screen-bg"/>
-        <!-- Base inferior -->
-        <rect x="0" y="40" width="64" height="4" fill="#0ff"/>
-      </svg>
-
-      <!-- Texto animado encima -->
-      <div class="laptop-screen-text">
-        <span id="typed-text"></span><span class="cursor">|</span>
+     <div id="clock-widget" class="clock-widget">
+          <span class="icon">📍</span>
+          <span id="location">--</span>
+          <span id="time">--:--</span>
       </div>
+    <button id="mode-toggle" aria-label="Alternar modo claro/oscuro">🌗</button>
+      <!-- Botón claro/oscuro -->
+      
+  </nav>
+  <header id="inicio" class="hero">
+
+    <h1 class="intro-text" id="nombre-portafolio">Alejandro  García  Benítez</h1> 
+    <p class="subtitle futuristic-text" class="subtitle">Desarrollador FullStack Developer Junior 👨‍💻| Portafolio</p>
+
+    <div class="nav-right">
+      <!-- Portátil SVG -->
+          <div class="laptop-container">
+            <svg class="laptop-svg" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="56" height="32" rx="4" ry="4" fill="#111" stroke="#0ff" stroke-width="2"/>
+              <rect x="6" y="10" width="52" height="28" rx="2" ry="2" class="screen-bg"/>
+              <rect x="0" y="40" width="64" height="4" fill="#0ff"/>
+            </svg>
+
+            <div class="laptop-screen-text" id="typed-container">
+              <span id="typed-text"></span><span class="cursor">|</span>
+            </div>
+          </div>
+    </div>
+  </header>
+
+ <section id="sobre-mi" class="about-me">
+  <h2>Sobre mí</h2>
+  <div class="about-cards">
+
+    <div class="about-card">
+      <div class="icon">👋</div>
+      <h3>Presentación</h3>
+      <p>Soy Alejandro García Benítez, Desarrollador FullStack Junior, apasionado por crear soluciones robustas en front-end y back-end.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="icon">👤</div>
+      <h3>Personalidad</h3>
+      <p>Paciente, ético y determinado. Valoro el trabajo en equipo, aprendizaje continuo y aportar siempre con actitud positiva.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="icon">💻</div>
+      <h3>Experiencia</h3>
+      <p>HTML5, CSS3, JavaScript, Java, PL/SQL, PHP, Python, Django, Git y actualmente estudiando Cobol.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="icon">🌐</div>
+      <h3>Frameworks</h3>
+      <p>Experiencia con Bootstrap y React, creando interfaces modernas y dinámicas.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="icon">🛠️</div>
+      <h3>Herramientas</h3>
+      <p>Visual Studio Code, Netbeans, Eclipse, GitHub y Oracle.</p>
+    </div>
+
+    <div class="about-card">
+      <div class="icon">🚀</div>
+      <h3>Objetivo</h3>
+      <p>Busco crecer profesionalmente y aportar en proyectos que generen un impacto positivo.</p>
     </div>
 
   </div>
+</section>
 
 
-
-    </header>
-
-  <section id="sobre-mi" class="projects">
-    <!-- Se añade un sobre mi para ver un poco como soy como persona y como trabajador creo que es importante -->
-    <h2>Sobre mi</h2>
-     <div class="project-carousel">
-        <div class="project-card">
-          <div class="project">
-          <p>
-           "Soy un Desarrollador FullStack Junior recién graduado en DAW, impulsado por una profunda pasión por la creación de soluciones robustas tanto en front-end como en back-end.
-
-            Tengo un manejo sólido de tecnologías clave como HTML, CSS, JavaScript, Java, SQL, PHP y Python, complementado con experiencia en frameworks modernos como Bootstrap y React.
-
-            Me caracterizo por mi paciencia, mi ética de trabajo y una determinación inquebrantable para superar desafíos y encontrar soluciones eficientes. Además, valoro enormemente el trabajo en equipo, el aprendizaje continuo y la capacidad de aportar siempre con una actitud positiva.
-
-            Busco una oportunidad para seguir creciendo profesionalmente, expandir mis conocimientos y contribuir activamente con mi esfuerzo e ideas en proyectos que generen un impacto significativo."</p>
-        </div>
-      </div>
-  </section>
 
   <!-- FORMULARIO DE CONTACTO -->
 <section id="formulario" class="contact">
@@ -123,51 +155,142 @@
   </form>
 </section>
 
+<section id="habilidades" class="skills">
+  <h2>Habilidades</h2>
+  <div class="skills-grid">
 
-  <section id="habilidades" class="skills">
-    <h2>Habilidades</h2>
-    <div class="skill-bar">
-      <span>HTML</span>
-      <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+    <!-- HTML -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/html-5.png" alt="HTML">
+          <h3>HTML</h3>
+        </div>
+        <div class="skill-back">
+          <p>HTML es el lenguaje de marcado que estructura el contenido de la web.</p>
+        </div>
+      </div>
     </div>
-    <div class="skill-bar">
-      <span>CSS</span>
-      <div class="bar"><div class="fill" style="width: 65%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>JavaScript</span>
-      <div class="bar"><div class="fill" style="width: 60%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>Java</span>
-      <div class="bar"><div class="fill" style="width: 50%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>Cobol</span>
-      <div class="bar"><div class="fill" style="width: 20%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>SQL</span>
-      <div class="bar"><div class="fill" style="width: 60%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>Python</span>
-      <div class="bar"><div class="fill" style="width: 30%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>Django</span>
-      <div class="bar"><div class="fill" style="width: 25%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>PhP</span>
-      <div class="bar"><div class="fill" style="width: 20%;"></div></div>
-    </div>
-    <div class="skill-bar">
-      <span>GitHub</span>
-      <div class="bar"><div class="fill" style="width: 60%;"></div></div>
-    </div>
-  </section>
 
+    <!-- CSS -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/css3.png" alt="CSS">
+          <h3>CSS</h3>
+        </div>
+        <div class="skill-back">
+          <p>CSS se usa para dar estilo y diseño responsivo a las páginas web.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/javascript.png" alt="JavaScript">
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-back">
+          <p>JavaScript añade interactividad y dinamismo a las aplicaciones web.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Java -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/java-coffee-cup-logo.png" alt="Java">
+          <h3>Java</h3>
+        </div>
+        <div class="skill-back">
+          <p>Java es un lenguaje orientado a objetos muy usado en backend y apps móviles.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cobol -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/ios/96/source-code.png" alt="Cobol">
+          <h3>Cobol</h3>
+        </div>
+        <div class="skill-back">
+          <p>Cobol es un lenguaje clásico para gestión bancaria y sistemas financieros.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SQL -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/sql.png" alt="SQL">
+          <h3>SQL</h3>
+        </div>
+        <div class="skill-back">
+          <p>SQL permite gestionar y consultar bases de datos relacionales.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Python -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/python.png" alt="Python">
+          <h3>Python</h3>
+        </div>
+        <div class="skill-back">
+          <p>Python es un lenguaje versátil usado en IA, ciencia de datos y automatización.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Django -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/color/96/django.png" alt="Django">
+          <h3>Django</h3>
+        </div>
+        <div class="skill-back">
+          <p>Django es un framework de Python para crear aplicaciones web rápidas y seguras.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHP -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/officel/96/php-logo.png" alt="PHP">
+          <h3>PHP</h3>
+        </div>
+        <div class="skill-back">
+          <p>PHP es un lenguaje muy utilizado en el desarrollo backend y gestión de servidores.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub -->
+    <div class="skill-card">
+      <div class="skill-inner">
+        <div class="skill-front">
+          <img src="https://img.icons8.com/ios-glyphs/96/github.png" alt="GitHub">
+          <h3>GitHub</h3>
+        </div>
+        <div class="skill-back">
+          <p>GitHub es la plataforma líder para control de versiones y colaboración en proyectos.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <section id="proyectos" class="projects">
      <h2>Proyectos</h2>
@@ -201,6 +324,11 @@
           </div>
       </div>
     </div>
+    <!-- Calendario -->
+      <section id="calendario" class="calendar-section">
+        <h2>📅 Calendario</h2>
+        <div id="calendar"></div>
+      </section>
     <h2>Contacto</h2>
     <div id="contacto" class="project-carousel">
       <div class="project-card"><a href="https://github.com/AlejandroGB95" target="_blank">GitHub</a></div>

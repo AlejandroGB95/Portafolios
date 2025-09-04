@@ -470,3 +470,281 @@ body.light-mode #mode-toggle {
     transform: scale(0.95);
     box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
   }
+
+
+ /* Estilo card habilidades nuevo...*/
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, auto); 
+  grid-template-rows: repeat(2, auto);
+  gap: 2rem;
+  justify-content: center;  
+  margin-top: 2rem;
+}
+
+/* Tablet: 3 columnas */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+/* Móvil: 2 columnas */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+
+.skill-card {
+  perspective: 1000px;
+  width: 180px;
+  height: 220px;
+}
+
+.skill-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.skill-card:hover .skill-inner,
+.skill-card.active .skill-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-front,
+.skill-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.skill-front {
+  background: #111;
+  color: #00f0ff;
+}
+
+.skill-front img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.skill-back {
+  background: #0ff;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+.skill-back p {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;            /* Negrita */
+  font-size: 1.1rem;            /* Tamaño un poco más grande */
+  color: #ffffff;               /* Blanco */
+  text-shadow: 0 0 5px #87dfdf, 0 0 10px #00b3ff; /* Brillo futurista */
+  transition: color 0.3s, text-shadow 0.3s; /* Suaviza animaciones */
+  cursor: default;              /* No cambia el cursor */
+}
+
+/* Opcional: efecto hover */
+.skill-back p:hover {
+  color: rgb(2, 17, 17);
+  text-shadow: 0 0 10px #0ff, 0 0 20px #00b3ff;
+  transform: scale(1.05);
+}
+
+
+/* calendario estilo */
+
+.calendar {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(10,10,10,0.85);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,255,255,0.3);
+  text-align: center;
+  color: #00ffea;
+}
+
+#calendar {
+  max-width: 100%;
+  margin: 2rem auto;
+}
+
+
+/* Número del día */
+.fc-daygrid-day-number {
+  font-size: 1.5rem; /* Ajusta el tamaño a tu gusto */
+  font-weight: bold;
+  color: #0ff; /* Opcional: color futurista */
+}
+
+.fc-event-title {
+  font-size: 1.2rem; /* Ajusta según quieras */
+  font-weight: bold;
+  color: #f3f0f7;
+}
+
+.fc-col-header-cell-cushion {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(239, 243, 243);
+}
+
+
+/* hora actual del usuario con geoverse*/
+
+.clock-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #00ffff;
+  text-shadow: 
+    0 0 5px #00ffff, 
+    0 0 10px #00b3ff, 
+    0 0 20px #00b3ff, 
+    0 0 30px #00f0ff;
+  gap: 0.8rem;
+  margin: 1rem auto;
+}
+
+.clock-widget .icon {
+  font-size: 1.6rem;
+  animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+/* Contenedor del reloj */
+.clock-widget {
+  display: flex;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00b3ff;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+/* Opcional: parpadeo del icono */
+.clock-widget .icon {
+  font-size: 1.2rem;
+  animation: blink 1.2s infinite alternate;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Alineamos los elementos del nav a la derecha */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#nombre-portafolio {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff, 0 0 30px #00f0ff;
+  font-size: 4rem;
+  text-align: center;
+}
+
+/* nuevo apartado sobre mi*/
+.about-me {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-me h2 {
+  font-size: 2.5rem;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff;
+  margin-bottom: 3rem;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.about-card {
+  background: rgba(10, 10, 10, 0.85);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,255,255,0.3);
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0,255,255,0.6);
+}
+
+.about-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* nuevo apartado sobre mi*/
