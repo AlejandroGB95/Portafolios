@@ -30,7 +30,7 @@
     desc.style.display = desc.style.display === "block" ? "none" : "block";
   }
 
-  // constelaciones
+  //------------------------------constelaciones-------------------------------------------------
   const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
 let stars = [];
@@ -40,31 +40,52 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Generar estrellas
-const numStars = 150;
+const numStars = 200;
 for (let i = 0; i < numStars; i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     radius: Math.random() * 1.5 + 0.5,
     vx: (Math.random() - 0.5) * 0.2,
-    vy: (Math.random() - 0.5) * 0.2
+    vy: (Math.random() - 0.5) * 0.2,
+    alpha: Math.random(), // para parpadeo
+    dAlpha: Math.random() * 0.02
   });
 }
 
-// Detectar posición del ratón
+// Posición del ratón
 window.addEventListener('mousemove', e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
 
+// Generar nebulosas suaves
+function drawNebulas() {
+  const gradient = ctx.createRadialGradient(
+    canvas.width/2, canvas.height/2, 0,
+    canvas.width/2, canvas.height/2, canvas.width/1.5
+  );
+  gradient.addColorStop(0, 'rgba(0,50,100,0.15)');
+  gradient.addColorStop(1, 'rgba(0,0,20,0.5)');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Dibujar nebulosas
+  drawNebulas();
+
   // Dibujar estrellas
   stars.forEach(star => {
+    // Parpadeo
+    star.alpha += star.dAlpha;
+    if(star.alpha <= 0 || star.alpha >= 1) star.dAlpha *= -1;
+
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fillStyle = '#00ffff'; // azul eléctrico
+    ctx.fillStyle = `rgba(0,255,255,${star.alpha})`; // azul eléctrico
     ctx.fill();
   });
 
@@ -77,7 +98,7 @@ function draw() {
 
       if (distance < 120) {
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(0,255,255,' + (1 - distance / 120) + ')';
+        ctx.strokeStyle = `rgba(0,255,255,${1 - distance / 120})`;
         ctx.lineWidth = 0.5;
         ctx.moveTo(stars[i].x, stars[i].y);
         ctx.lineTo(stars[j].x, stars[j].y);
@@ -91,7 +112,7 @@ function draw() {
         const distMouse = Math.sqrt(dxm * dxm + dym * dym);
         if (distMouse < 150) {
           ctx.beginPath();
-          ctx.strokeStyle = 'rgba(0,255,255,' + (1 - distMouse / 150) + ')';
+          ctx.strokeStyle = `rgba(0,255,255,${1 - distMouse / 150})`;
           ctx.lineWidth = 0.5;
           ctx.moveTo(stars[i].x, stars[i].y);
           ctx.lineTo(mouse.x, mouse.y);
@@ -119,3 +140,6 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+
+//------------------------------constelaciones-------------------------------------------------
