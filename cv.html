@@ -6,6 +6,7 @@
 <title>Currículum Alejandro García Benítez</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="estilo.css" />
+<script defer src="cv.js"></script>
 </head>
 <body>
   <div class="background-img">
@@ -87,33 +88,78 @@
   </div>
 
   <!-- HABILIDADES -->
-  <div class="section animate">
-    <h2>Habilidades</h2>
-    <div class="skills">
-      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Java</span>
-      <span>MySQL</span><span>Python</span><span>PHP</span><span>React</span><span>Git</span>
+ <div class="section animate">
+  <h2>Habilidades</h2>
+  <div class="skills-grid">
+
+    <!-- Fila 1 -->
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">HTML</button>
+      <div class="skill-desc">
+        Capaz de estructurar páginas web accesibles, semánticas y con diseño responsive.
+      </div>
     </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">CSS</button>
+      <div class="skill-desc">
+        Experiencia en layouts modernos (Flexbox, Grid), animaciones y estilos responsive.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">JavaScript</button>
+      <div class="skill-desc">
+        Conocimiento en programación funcional, manipulación del DOM, AJAX y ES6+.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Java</button>
+      <div class="skill-desc">
+        Programación orientada a objetos, desarrollo backend y aplicaciones de consola.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">MySQL</button>
+      <div class="skill-desc">
+        Creación de bases de datos, consultas complejas y normalización de datos.
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">PHP</button>
+      <div class="skill-desc">
+        Experiencia en desarrollo web dinámico y conexión a bases de datos.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Python</button>
+      <div class="skill-desc">
+        Desarrollo de scripts, automatización y proyectos con Django.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Git</button>
+      <div class="skill-desc">
+        Manejo de control de versiones, ramas y colaboración en proyectos.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">React</button>
+      <div class="skill-desc">
+        Construcción de interfaces dinámicas, hooks, props y componentes reutilizables.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Bootstrap</button>
+      <div class="skill-desc">
+        Experiencia en la utilización de Bootstrap para crear interfaces modernas y adaptables. Manejo del sistema de grid para maquetación responsive, componentes preconstruidos (cards, modals, navbars) y personalización de estilos para lograr diseños rápidos y profesionales.
+      </div>
+    </div>
+
   </div>
-
 </div>
-<script>
-    function toggleCursos(button) {
-      const content = document.getElementById('cursos-content');
-      const arrow = button.querySelector('.arrow');
-      content.classList.toggle('expanded');
-      arrow.textContent = content.classList.contains('expanded') ? '⮝' : '⮟';
-    }
 
-    // Animación al hacer scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-    </script>
+ <!-- Fin HABILIDADES -->
+</div>
 </body>
 </html>

@@ -167,3 +167,42 @@ a:hover {
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1rem; }
 }
+
+/* Habilidades nuevo botones con descripcion debajo */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skill-item button {
+  background: #0ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+  width: 100%;
+}
+
+.skill-item button:hover {
+  background: #08cfcf;
+  transform: scale(1.05);
+}
+
+.skill-desc {
+  display: none;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  background: rgba(0, 255, 255, 0.1);
+  border-left: 3px solid #0ff;
+  border-radius: 6px;
+  text-align: left;
+}
+
+/* final habilidades*/
