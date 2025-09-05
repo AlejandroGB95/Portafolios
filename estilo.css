@@ -169,14 +169,14 @@ a:hover {
 }
 
 /* Habilidades nuevo botones con descripcion debajo */
-
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas en escritorio */
   gap: 1rem;
   margin-top: 1rem;
 }
 
+/* Habilidades */
 .skill-item button {
   background: #0ff;
   color: #000;
@@ -204,5 +204,31 @@ a:hover {
   border-radius: 6px;
   text-align: left;
 }
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets grandes */
+  }
+}
+
+@media (max-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles grandes */
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* 1 columna en móviles pequeños */
+  }
+}
+
 
 /* final habilidades*/
