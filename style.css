@@ -41,7 +41,17 @@ body {
   opacity: 0;
   transform: scale(0.8);
   transition: color 0.6s;
+  
 }
+
+#nombre-portafolio {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff, 0 0 30px #00f0ff;
+  font-size: 4rem;
+  text-align: center;
+}
+
 
 .subtitle {
   font-size: 1.5rem;
@@ -738,14 +748,6 @@ body.light-mode #mode-toggle {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-#nombre-portafolio {
-  font-family: 'Orbitron', sans-serif;
-  color: #00f0ff;
-  text-shadow: 0 0 10px #00f0ff, 0 0 30px #00f0ff;
-  font-size: 4rem;
-  text-align: center;
 }
 
 /* nuevo apartado sobre mi*/
