@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #0a0a0a;
   color: #fff;
   overflow-x: hidden;
@@ -15,13 +15,48 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background-image: linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px),
-                    linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px);
+
+  /* Glow de fondo + rejilla */
+  background: radial-gradient(circle at center, rgba(0,255,255,0.05), transparent 70%),
+              linear-gradient(90deg, rgba(16, 211, 211, 0.3) 1px, transparent 1px),
+              linear-gradient(rgba(0,255,255,0.3) 1px, transparent 1px);
+
   background-size: 40px 40px;
-  z-index: -1;
   transform: perspective(800px) rotateX(60deg);
+
+  /* Animaciones */
+  animation: gridGlow 3s ease-in-out infinite alternate,
+             gridMove 20s linear infinite;
+
+  z-index: -1;
   pointer-events: none;
 }
+
+@keyframes gridGlow {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 200px 200px, 100px 100px, 50px 50px; }
+}
+
+/* Animación de brillo (cambia la opacidad ligeramente para efecto futurista) */
+@keyframes gridGlow {
+  0% { background-color: rgba(0,0,0,0); }
+  50% { background-color: rgba(0,255,255,0.05); }
+  100% { background-color: rgba(0,0,0,0); }
+}
+
+/* Animación de movimiento de la rejilla */
+@keyframes gridMove {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 200px 200px, 100px 100px; }
+}
+
+
 
 .hero {
   height: 100vh;
@@ -45,7 +80,7 @@ body {
 }
 
 #nombre-portafolio {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #00f0ff;
   text-shadow: 0 0 10px #00f0ff, 0 0 30px #00f0ff;
   font-size: 4rem;
@@ -151,13 +186,20 @@ body {
 footer {
   text-align: center;
   padding: 2rem;
-  background: #000;
-  color: #aaa;
+  background: rgba(0, 255, 255, 0.2);
+  color: #00eeff;
+  font-size: 1.2rem;
+}
+
+footer:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #f504b9;
+  font-size: 1.5rem;
 }
 
 /* Modo claro */
 body.light-mode {
-  background: #f0f0f0;
+  background: #fdfdfd;
   color: #000;
 }
 body.light-mode .grid-bg {
@@ -172,11 +214,11 @@ body.light-mode .subtitle {
   color: #333;
 }
 body.light-mode .project-card {
-  background: #fff;
+  background: #f1eeee;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 body.light-mode #mode-toggle {
-  background: #ddd;
+  background: #f7f7f7;
   color: #000;
 }
 
@@ -192,7 +234,7 @@ body.light-mode #mode-toggle {
 
 /* Para darle color al texto desarrollador web */
 .futuristic-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   letter-spacing: 2px;
   color: #00fff7;
@@ -260,7 +302,7 @@ body.light-mode #mode-toggle {
   background-color: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 
   display: flex;               /* Flexbox */
@@ -275,17 +317,19 @@ body.light-mode #mode-toggle {
   margin: 0;
   padding: 0;
   list-style: none;
+  
 }
 
 .main-nav ul li {
   margin: 0 1.5rem;
+  
 }
 
 .main-nav ul li a {
   color: #0ff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
@@ -293,6 +337,7 @@ body.light-mode #mode-toggle {
 .main-nav ul li a:focus {
   color: #fff;
   text-shadow: 0 0 8px #0ff;
+  font-size: 1.5rem;
 }
 
 /* Botón modo oscuro */
@@ -326,6 +371,8 @@ body.light-mode #mode-toggle {
   position: relative;
   display: inline-block;
   width: 290px; /* ajusta tamaño a gusto */
+  
+  
 }
 
 .laptop-svg {
@@ -339,11 +386,12 @@ body.light-mode #mode-toggle {
   top: 40%; /* ajusta vertical */
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: monospace;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
-  color: #0f0;
+  color: rgb(5, 241, 241);
   white-space: nowrap;
   overflow: hidden;
+  
 }
 
 .cursor {
@@ -564,7 +612,7 @@ body.light-mode #mode-toggle {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;            /* Negrita */
-  font-size: 1.1rem;            /* Tamaño un poco más grande */
+  font-size: 1rem;            /* Tamaño un poco más grande */
   color: #ffffff;               /* Blanco */
   text-shadow: 0 0 5px #87dfdf, 0 0 10px #00b3ff; /* Brillo futurista */
   transition: color 0.3s, text-shadow 0.3s; /* Suaviza animaciones */
@@ -582,7 +630,7 @@ body.light-mode #mode-toggle {
 .skill-card {
   perspective: 1000px;
   width: 200px;       /* puedes ajustar */
-  height: 260px;      /* más alto para que quepa */
+  height: 270px;      /* más alto para que quepa */
 }
 
 .skill-inner {
@@ -620,7 +668,7 @@ body.light-mode #mode-toggle {
 
 .stars {
   font-size: 1.2rem;
-  color: #FFD700;
+  color: #06f3fc;
   margin: 5px 0;
   white-space: nowrap; /* evita que salten de línea */
 }
@@ -639,38 +687,54 @@ body.light-mode #mode-toggle {
 
 .calendar {
   padding: 4rem 2rem;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
-  background: rgba(10,10,10,0.85);
+  background: rgba(0, 0, 0, 0.85);
   border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,255,255,0.3);
+  box-shadow: 0 8px 25px rgba(1, 211, 248, 0.3);
   text-align: center;
-  color: #00ffea;
+  color: #06eeff;
 }
 
 #calendar {
-  max-width: 100%;
+  max-width: 90%;
   margin: 2rem auto;
+  background-color: rgba(1, 211, 248, 0.3);
+  
 }
-
 
 /* Número del día */
 .fc-daygrid-day-number {
   font-size: 1.5rem; /* Ajusta el tamaño a tu gusto */
   font-weight: bold;
-  color: #0ff; /* Opcional: color futurista */
+  color: rgb(243, 248, 248); /* Opcional: color futurista */
 }
 
-.fc-event-title {
-  font-size: 1.2rem; /* Ajusta según quieras */
-  font-weight: bold;
-  color: #f3f0f7;
-}
+
 
 .fc-col-header-cell-cushion {
   font-size: 1.2rem;
   font-weight: bold;
   color: rgb(239, 243, 243);
+}
+
+
+/* Eventos del calendario */
+.fc-event {
+  background-color: transparent !important; /* Fondo transparente */
+  border: 1px solid #00ffff;                /* Borde futurista */
+  color: #00ffff !important;                /* Color del texto */
+  border-radius: 6px;                        /* Bordes redondeados */
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4); /* Pequeño glow */
+}
+
+/* Título dentro del evento */
+.fc-event-title {
+  background-color: transparent !important;  /* Fondo transparente */
+  color: #f0f7f7 !important;                 /* Texto futurista */
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00d9ff; /* Glow */
+  font: 1.2rem 'Poppins', sans-serif;
 }
 
 
@@ -680,7 +744,7 @@ body.light-mode #mode-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   color: #00ffff;
   text-shadow: 
@@ -710,7 +774,7 @@ body.light-mode #mode-toggle {
   background-color: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 
   display: flex;
@@ -723,7 +787,7 @@ body.light-mode #mode-toggle {
 .clock-widget {
   display: flex;
   align-items: center;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
   color: #00ffff;
   text-shadow: 0 0 5px #00ffff, 0 0 10px #00b3ff;
@@ -748,6 +812,7 @@ body.light-mode #mode-toggle {
   display: flex;
   align-items: center;
   gap: 1rem;
+  
 }
 
 /* nuevo apartado sobre mi*/
@@ -793,18 +858,72 @@ body.light-mode #mode-toggle {
 }
 
 .about-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #0ff;
   text-shadow: 0 0 5px #0ff;
 }
 
 .about-card p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.6;
 }
 
 
 /* nuevo apartado sobre mi*/
 
+
+/* ----------------- MENU CON SVG ----------------- */
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 20px; /* Espacio entre enlaces */
+}
+
+.main-nav ul li {
+  margin: 0;
+}
+
+.main-nav ul li a {
+  display: flex;
+  align-items: center; /* Alinea icono y texto */
+  gap: 8px; /* Espacio entre icono y texto */
+  text-decoration: none;
+  color: #0ff; /* Color por defecto */
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.main-nav ul li a svg {
+  width: 20px;
+  height: 20px;
+  fill: #0ff;
+  transition: fill 0.3s;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a:focus {
+  color: #fff;
+  background-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 8px #0ff;
+}
+
+.main-nav ul li a:hover svg,
+.main-nav ul li a:focus svg {
+  fill: #fff;
+}
+
+/* Ajustes responsivos para móviles */
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 
