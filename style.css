@@ -359,6 +359,13 @@ body.light-mode #mode-toggle {
   fill: #fff;
 }
 
+.main-nav ul li a svg {
+  width: 20px;
+  height: 20px;
+  fill: #0ff;
+  vertical-align: middle;
+}
+
 
 /* Botón modo oscuro */
 #mode-toggle {
@@ -893,48 +900,4 @@ body.light-mode #mode-toggle {
 /* nuevo apartado sobre mi*/
 
 
-/* ----------------- MENU CON SVG ----------------- */
-.main-nav ul {
-  display: inline-block;        /* Mantiene los elementos en línea */
-  white-space: nowrap;          /* Evita que los elementos se rompan de línea */
-  overflow-x: auto;             /* Permite scroll horizontal si hay muchos items */
-  -webkit-overflow-scrolling: touch; /* Suaviza el scroll en móviles */
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  gap: 20px;
-}
 
-/* Opcional: ocultar la barra de scroll pero mantener scroll funcional */
-.main-nav ul::-webkit-scrollbar {
-  display: none;
-}
-.main-nav ul {
-  -ms-overflow-style: none;  /* IE 10+ */
-  scrollbar-width: none;     /* Firefox */
-}
-
-/* Asegurar que los items sigan alineados verticalmente */
-.main-nav ul li {
-  display: inline-block;
-  margin: 0;
-}
-
-.main-nav ul li a {
-  display: inline-flex;       /* Para alinear icono y texto */
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  color: #0ff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.main-nav ul li a svg {
-  width: 20px;
-  height: 20px;
-  fill: #0ff;
-  vertical-align: middle;
-}
