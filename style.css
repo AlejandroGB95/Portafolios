@@ -317,12 +317,12 @@ body.light-mode #mode-toggle {
   margin: 0;
   padding: 0;
   list-style: none;
+  gap: 20px; /* Espacio entre enlaces */
   
 }
 
 .main-nav ul li {
-  margin: 0 1.5rem;
-  
+  margin: 0;
 }
 
 .main-nav ul li a {
@@ -331,6 +331,10 @@ body.light-mode #mode-toggle {
   font-weight: 600;
   font-size: 1.2rem;
   transition: color 0.3s ease;
+  gap: 8px; /* Espacio entre icono y texto */
+  align-items: center; /* Alinea icono y texto */
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 
 .main-nav ul li a:hover,
@@ -338,7 +342,23 @@ body.light-mode #mode-toggle {
   color: #fff;
   text-shadow: 0 0 8px #0ff;
   font-size: 1.5rem;
+  background-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 8px #0ff;
 }
+
+
+.main-nav ul li a svg {
+  width: 20px;
+  height: 20px;
+  fill: #0ff;
+  transition: fill 0.3s;
+}
+
+.main-nav ul li a:hover svg,
+.main-nav ul li a:focus svg {
+  fill: #fff;
+}
+
 
 /* Botón modo oscuro */
 #mode-toggle {
@@ -687,7 +707,7 @@ body.light-mode #mode-toggle {
 
 .calendar {
   padding: 4rem 2rem;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.85);
   border-radius: 15px;
@@ -697,7 +717,7 @@ body.light-mode #mode-toggle {
 }
 
 #calendar {
-  max-width: 90%;
+  max-width: 98%;
   margin: 2rem auto;
   background-color: rgba(1, 211, 248, 0.3);
   
@@ -875,55 +895,46 @@ body.light-mode #mode-toggle {
 
 /* ----------------- MENU CON SVG ----------------- */
 .main-nav ul {
-  display: flex;
-  justify-content: center;
-  margin: 0;
+  display: inline-block;        /* Mantiene los elementos en línea */
+  white-space: nowrap;          /* Evita que los elementos se rompan de línea */
+  overflow-x: auto;             /* Permite scroll horizontal si hay muchos items */
+  -webkit-overflow-scrolling: touch; /* Suaviza el scroll en móviles */
   padding: 0;
+  margin: 0;
   list-style: none;
-  gap: 20px; /* Espacio entre enlaces */
+  gap: 20px;
 }
 
+/* Opcional: ocultar la barra de scroll pero mantener scroll funcional */
+.main-nav ul::-webkit-scrollbar {
+  display: none;
+}
+.main-nav ul {
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Asegurar que los items sigan alineados verticalmente */
 .main-nav ul li {
+  display: inline-block;
   margin: 0;
 }
 
 .main-nav ul li a {
-  display: flex;
-  align-items: center; /* Alinea icono y texto */
-  gap: 8px; /* Espacio entre icono y texto */
-  text-decoration: none;
-  color: #0ff; /* Color por defecto */
-  font-weight: 600;
-  font-size: 1.3rem;
+  display: inline-flex;       /* Para alinear icono y texto */
+  align-items: center;
+  gap: 8px;
   padding: 6px 10px;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  color: #0ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .main-nav ul li a svg {
   width: 20px;
   height: 20px;
   fill: #0ff;
-  transition: fill 0.3s;
+  vertical-align: middle;
 }
-
-.main-nav ul li a:hover,
-.main-nav ul li a:focus {
-  color: #fff;
-  background-color: rgba(0, 255, 255, 0.2);
-  box-shadow: 0 0 8px #0ff;
-}
-
-.main-nav ul li a:hover svg,
-.main-nav ul li a:focus svg {
-  fill: #fff;
-}
-
-/* Ajustes responsivos para móviles */
-@media (max-width: 768px) {
-  .main-nav ul {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
