@@ -32,6 +32,13 @@ body {
   pointer-events: none;
 }
 
+@media screen and (max-width: 768px) {
+  .main-nav {
+    background-color: rgba(0,0,0,0);
+  }
+  
+}
+
 @keyframes gridGlow {
   0% { opacity: 0.6; }
   50% { opacity: 1; }
@@ -175,26 +182,28 @@ body {
   opacity: 0;
   transition: background 0.3s;
   user-select: none;
+  color: #ffffff;
 }
 .project-card:hover {
-  background: #004080;
+  background-color: rgba(0, 255, 255, 0.822);
   box-shadow: 0 0 40px #00f0ff;
   transform: scale(1);
   cursor: pointer;
+  font-size: 1.1rem;
 }
 
 footer {
   text-align: center;
   padding: 2rem;
   background: rgba(0, 255, 255, 0.2);
-  color: #00eeff;
-  font-size: 1.2rem;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 footer:hover {
-  color: #ffffff;
+  color: #ff0000;
   text-shadow: 0 0 10px #f504b9;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 /* Modo claro */
@@ -329,7 +338,7 @@ body.light-mode #mode-toggle {
   color: #0ff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: color 0.3s ease;
   gap: 8px; /* Espacio entre icono y texto */
   align-items: center; /* Alinea icono y texto */
@@ -341,7 +350,7 @@ body.light-mode #mode-toggle {
 .main-nav ul li a:focus {
   color: #fff;
   text-shadow: 0 0 8px #0ff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: rgba(0, 255, 255, 0.2);
   box-shadow: 0 0 8px #0ff;
 }
@@ -898,6 +907,26 @@ body.light-mode #mode-toggle {
 
 
 /* nuevo apartado sobre mi*/
+@media screen and (max-width: 1450px) {
+  .main-nav {
+    background-color: transparent;
+  }
+
+  .main-nav ul li a {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
+/* colores contacto */
+
+#contacto .project-card:nth-child(1) a { color: #c71d9d; }     /* GitHub */
+#contacto .project-card:nth-child(2) a { color: #05f77e; } /* LinkedIn */
+#contacto .project-card:nth-child(3) a { color: #0929e0; } /* InfoJobs */
+#contacto .project-card:nth-child(4) a { color: #ff6600; } /* TecnoEmpleo */
+#contacto .project-card:nth-child(5) a { color: #fc1601; } /* Gmail */
 
 
-
+#juego1 { color: #06f526; } /* enlace juegos */
+#juego2 { color: #cedb1b; } /* enlace juegos */
+#juego3 { color: #d32e1f; } /* enlace juegos */
+#juego4 { color: #e00f89; } /* enlace juegos */
