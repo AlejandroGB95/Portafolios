@@ -73,7 +73,7 @@ function draw() {
   const isLightMode = document.body.classList.contains("light-mode");
 
   // Cambiar color del fondo según modo
-  ctx.fillStyle = isLightMode ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)";
+  ctx.fillStyle = isLightMode ? "rgba(170, 163, 163, 0.75)" : "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Cambiar color del texto Matrix

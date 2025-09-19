@@ -106,7 +106,7 @@ body {
 #mode-toggle {
   margin-top: 2rem;
   padding: 0.5rem 1rem;
-  background: #111;
+  background: #000000;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -185,7 +185,7 @@ body {
   color: #ffffff;
 }
 .project-card:hover {
-  background-color: rgba(0, 255, 255, 0.822);
+  background-color: rgba(0, 255, 255, 0.616);
   box-shadow: 0 0 40px #00f0ff;
   transform: scale(1);
   cursor: pointer;
@@ -200,15 +200,11 @@ footer {
   font-size: 1rem;
 }
 
-footer:hover {
-  color: #ff0000;
-  text-shadow: 0 0 10px #f504b9;
-  font-size: 1.2rem;
-}
+
 
 /* Modo claro */
 body.light-mode {
-  background: #fdfdfd;
+  background: rgba(2, 2, 2, 0.95);
   color: #000;
 }
 body.light-mode .grid-bg {
@@ -223,11 +219,12 @@ body.light-mode .subtitle {
   color: #333;
 }
 body.light-mode .project-card {
-  background: #f1eeee;
+  background: rgba(20, 20, 20, 0.95);
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+/* boton cuerpo -> */
 body.light-mode #mode-toggle {
-  background: #f7f7f7;
+  background: rgba(255, 254, 254, 0.95);
   color: #000;
 }
 
@@ -919,14 +916,15 @@ body.light-mode #mode-toggle {
 }
 /* colores contacto */
 
-#contacto .project-card:nth-child(1) a { color: #c71d9d; }     /* GitHub */
-#contacto .project-card:nth-child(2) a { color: #05f77e; } /* LinkedIn */
-#contacto .project-card:nth-child(3) a { color: #0929e0; } /* InfoJobs */
-#contacto .project-card:nth-child(4) a { color: #ff6600; } /* TecnoEmpleo */
-#contacto .project-card:nth-child(5) a { color: #fc1601; } /* Gmail */
+#contacto .project-card:nth-child(1) a { color: #cc1da3; }     /* GitHub */
+#contacto .project-card:nth-child(2) a { color: #16ce72; } /* LinkedIn */
+#contacto .project-card:nth-child(3) a { color: #1833ca; } /* InfoJobs */
+#contacto .project-card:nth-child(4) a { color: #ce6118; } /* TecnoEmpleo */
+#contacto .project-card:nth-child(5) a { color: #d12010; } /* Gmail */
 
 
-#juego1 { color: #06f526; } /* enlace juegos */
-#juego2 { color: #cedb1b; } /* enlace juegos */
-#juego3 { color: #d32e1f; } /* enlace juegos */
-#juego4 { color: #e00f89; } /* enlace juegos */
+#juego1 { color: #1ccc33; } /* enlace juegos */
+#juego2 { color: #b5c01b; } /* enlace juegos */
+#juego3 { color: #bb2a1d; } /* enlace juegos */
+#juego4 { color: #bb1d79; } /* enlace juegos */
+
