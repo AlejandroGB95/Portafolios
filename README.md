@@ -42,7 +42,7 @@ Portafolios/
 
 ## 🖼 Capturas de pantalla
 
-*(Aquí puedes añadir imágenes de tu portafolio en acción, por ejemplo con `![alt](imagenes/captura.png)` )*  
+*(Aquí se añadiran imágenes del portafolio más adelante, ya que siempre hay cambios y aun no esta completo siempre se puede mejorar)* 
 
 ---
 
