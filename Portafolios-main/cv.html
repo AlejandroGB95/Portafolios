@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículum Alejandro García Benítez</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="estilo.css" />
+<script defer src="cv.js"></script>
+</head>
+<body>
+  <!-- CABECERA  
+  <div class="background-img">
+  <img src="imagenes/planetas-interconectados.jpg" alt="Fondo planetas">
+  </div>-->
+<canvas id="starfield"></canvas>
+
+<div class="container">
+
+  <!-- CABECERA  -->
+  <div class="header animate">
+    <img src="imagenes/Alejandro.png" alt="Foto Alejandro"/>
+    <h1>Alejandro García Benítez</h1> 
+    <p>Técnico Superior en Desarrollo de Aplicaciones Web</p>
+    <p>Email: <a href="mailto:alexdack95@gmail.com">alexdack95@gmail.com</a></p>
+    <p>Ronda-(Málaga)</p>
+    <p>Tel: +34 <b>666971439</b> 📞</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/alejandro-garc%C3%ADa-ben%C3%ADtez-desarrolladorweb/">LinkedIn</a></p>
+    <p>TecnoEmpleo: <a href="https://www.tecnoempleo.com/profesionales/curriculum.php?idversion_curri=1087978">TecnoEmpleo</a></p>
+    <p>Infojobs: <a href="https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=7947736841809940860">InfoJobs</a></p>
+    <p>GitHub: <a href="https://github.com/AlejandroGB95">GitHub</a></p>
+  </div>
+
+  <!-- PERFIL PERSONAL -->
+  <div class="section animate">
+    <h2>Perfil Personal</h2>
+    <p>Soy un Desarrollador FullStack Developer Junior  graduado en DAW, impulsado por una profunda pasión por la creación de soluciones robustas tanto en front-end como en back-end.</p>
+    <p>Tengo un manejo sólido de tecnologías clave como HTML5, CSS3, JavaScript, Java, SQL, PHP, Django, Jquery y Python, complementado con experiencia en frameworks modernos como Bootstrap y React.</p>
+    <p>Me caracterizo por mi paciencia, ética de trabajo y una determinación inquebrantable para superar desafíos y encontrar soluciones eficientes. Además, valoro enormemente el trabajo en equipo, el aprendizaje continuo y la capacidad de aportar siempre con una actitud positiva.</p>
+    <p>Busco oportunidades para seguir creciendo profesionalmente, expandir mis conocimientos y contribuir activamente con mi esfuerzo e ideas en proyectos que generen un impacto significativo.</p>
+  </div>
+
+  <!-- INTERÉS -->
+  <div class="section animate">
+    <h2>Interés</h2>
+    <p><strong>Carnet B1 de Conducir</strong></p>
+    <p><strong>Idiomas: Inglés básico</strong></p>
+    <p><strong>Disponibilidad para viajar</strong></p>
+  </div>
+
+  <!-- EXPERIENCIA -->
+  <div class="section animate">
+    <h2>Experiencia</h2>
+    <p><strong>Prácticas de Desarrollo Web</strong> — Fundación Medac Zaitec (03/2025 - 06/2025)</p>
+    <p>Colaboración en desarrollo de sitios web dinámicos, maquetación responsive, pruebas de funcionalidad, creación de base de datos con los lenguajes de programación (Python, Django, Html5, Css3, JavaScript, Ajax, Jquery, Sqlite3) y distintas librerías de Python.</p>
+    <p><strong>Instalaciones Eléctricas y Automáticas</strong> — Electroclima Ronda (2021)</p>
+    <p>Instalaciones interiores, Aire Acondicionado, Automatismo y mantenimiento.</p>
+    <p><strong>Prácticas Instalaciones Eléctricas y Automáticas</strong> — Electroclima Ronda (2020)</p>
+    <p>Instalaciones interiores, Aire Acondicionado, Automatismo, mantenimiento, cambios de alumbrados y reparaciones.</p>
+  </div>
+
+  <!-- FORMACIÓN -->
+  <div class="section animate">
+    <h2>Formación</h2>
+    <p><strong>Técnico Superior en Desarrollo de Aplicaciones Web</strong> — Centro de Estudios I.E.S Medac(2024 - 2025) 2º Año</p>
+    <p><strong>Técnico Superior en Desarrollo de Aplicaciones Web</strong> — Centro de Estudios I.E.S Martin Rivero(2023 - 2024) 1º Año</p>
+    <p><strong>Técnico Medio en Instalaciones Eléctricas y Automáticas</strong> — Centro de Estudios I.E.S Martin Rivero (2018 - 2020)</p>
+    <p><strong>Educación Secundaria Obligatoria (E.S.O)</strong> — Centro de Estudios I.E.S Perez de Guzmán (2014)</p>
+  </div>
+
+  <!-- CURSOS -->
+  <div class="section animate">
+    <button class="toggle-btn" onclick="toggleCursos(this)">
+      <h2>Formación Específica (Cursos)<span class="arrow">⮟</span></h2> 
+    </button>
+    <div id="cursos-content" class="collapsed">
+      <h3 id="color1">Fundación Accenture</h3>
+      <p><strong>Curso 5h</strong> Iniciación Java (2025)</p>
+      <h3 id="color2">Santander Open Academy</h3>
+      <p><strong>Curso 2h</strong> Google: Inteligencia Artificial y productividad (2025)</p>
+      <h3 id="color3">Planes de Formación del SEPE</h3>
+      <p><strong>Curso 210h</strong> Procesamiento de Datos con (Java) 2025</p>
+      <p><strong>Curso 30h</strong> Cloud Computing (Azure, Linux) 2024</p>
+      <h3 id="color4">Andalucía Compromiso Digital</h3>
+      <p><strong>Curso 20h</strong> Iniciación a la Ciberseguridad (2022)</p>
+      <p><strong>Curso 20h</strong> BigData con Hadoop (2022)</p>
+      <p><strong>Curso 20h</strong> Python (2021)</p>
+      <p><strong>Curso 30h</strong> Diseño y programación Web (2020)</p>
+      <p><strong>Curso 25h</strong> Community Manager (2017)</p>
+    </div>
+  </div>
+
+  <!-- HABILIDADES -->
+ <div class="section animate">
+  <h2>Habilidades</h2>
+  <div class="skills-grid">
+
+    <!-- Fila 1 -->
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">HTML</button>
+      <div class="skill-desc">
+        Capaz de estructurar páginas web accesibles, semánticas y con diseño responsive.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">CSS</button>
+      <div class="skill-desc">
+        Experiencia en layouts modernos (Flexbox, Grid), animaciones y estilos responsive.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">JavaScript</button>
+      <div class="skill-desc">
+        Conocimiento en programación funcional, manipulación del DOM, AJAX y ES6+.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Java</button>
+      <div class="skill-desc">
+        Programación orientada a objetos, desarrollo backend y aplicaciones de consola.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">MySQL</button>
+      <div class="skill-desc">
+        Creación de bases de datos, consultas complejas y normalización de datos.
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">PHP</button>
+      <div class="skill-desc">
+        Experiencia en desarrollo web dinámico y conexión a bases de datos.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Python</button>
+      <div class="skill-desc">
+        Desarrollo de scripts, automatización y proyectos con Django.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Git</button>
+      <div class="skill-desc">
+        Manejo de control de versiones, ramas y colaboración en proyectos.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">React</button>
+      <div class="skill-desc">
+        Construcción de interfaces dinámicas, hooks, props y componentes reutilizables.
+      </div>
+    </div>
+    <div class="skill-item">
+      <button onclick="toggleSkill(this)">Bootstrap</button>
+      <div class="skill-desc">
+        Experiencia en la utilización de Bootstrap para crear interfaces modernas y adaptables. Manejo del sistema de grid para maquetación responsive, componentes preconstruidos (cards, modals, navbars) y personalización de estilos para lograr diseños rápidos y profesionales.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ <!-- Fin HABILIDADES -->
+</div>
+</body>
+</html>
