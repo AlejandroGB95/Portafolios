@@ -930,3 +930,96 @@ body.light-mode #mode-toggle {
 #juego5 { color: #1621c2; } /* enlace juegos */
 #juego6 { color: #bb14ad; } /* enlace juegos */
 
+/* ==== CHATBOT ==== */
+.chatbot-container {
+  max-width: 420px;
+  margin: 40px auto;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid #0ff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  font-family: 'Poppins', sans-serif;
+  color: #0ff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+.chat-header {
+  background: rgba(0, 255, 255, 0.15);
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #0ff;
+}
+
+.chat-body {
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-body::-webkit-scrollbar-thumb {
+  background: #0ff;
+  border-radius: 10px;
+}
+
+.bot-message, .user-message {
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease;
+}
+
+.bot-message {
+  background: rgba(0,255,255,0.1);
+  align-self: flex-start;
+}
+
+.user-message {
+  background: #0ff;
+  color: #000;
+  align-self: flex-end;
+}
+
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #0ff;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #0ff;
+  outline: none;
+}
+
+.chat-input-area button {
+  background: #0ff;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-input-area button:hover {
+  background: #00ffff80;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

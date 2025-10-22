@@ -399,3 +399,124 @@ gsap.utils.toArray('.about-text p').forEach((block, i) => {
   });
 });
 //nuevo apartado sobre mi 
+
+// ==== CHATBOT DE INFORMACIÓN LABORAL ====
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("chat-form");
+  const input = document.getElementById("user-input");
+  const chatBody = document.getElementById("chat-body");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+
+    addMessage("user", text);
+    input.value = "";
+
+    setTimeout(() => {
+      const reply = getResponse(text.toLowerCase());
+      addMessage("bot", reply);
+    }, 500);
+  });
+
+  function addMessage(sender, text) {
+    const msg = document.createElement("div");
+    msg.classList.add(sender === "user" ? "user-message" : "bot-message");
+    msg.innerHTML = text;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // (Opcional) leer en voz alta
+    if (sender === "bot") {
+      const speech = new SpeechSynthesisUtterance(text.replace(/<[^>]*>?/gm, ''));
+      speech.lang = "es-ES";
+      speech.rate = 1;
+      window.speechSynthesis.speak(speech);
+    }
+  }
+
+function getResponse(input) {
+  input = input.toLowerCase().trim();
+
+  // --- SALUDOS ---
+  if (input.includes("hola") || input.includes("buenas") || input.includes("hey") || input.includes("saludos") || input.includes("qué tal") || input.includes("como estas"))
+    return "👋 ¡Hola! Soy el asistente virtual de <strong>Alejandro García Benítez</strong>. ¿Quieres saber sobre su formación, proyectos, CV o cómo contactarlo?";
+
+  // --- CURRÍCULUM / CV ---
+  if (input.includes("cv") || input.includes("currículum") || input.includes("curriculum") || input.includes("curriculo") || input.includes("ver cv") || input.includes("descargar cv") || input.includes("curriculum vitae"))
+    return "📄 Puedes ver o descargar su currículum pulsando el botón <strong>'Descargar CV'</strong> en la barra superior o accediendo directamente a <a href='cv.html' target='_blank'>su CV online</a>.";
+
+  // --- FORMACIÓN / ESTUDIOS ---
+  if (input.includes("formacion") || input.includes("estudios") || input.includes("educacion") || input.includes("qué ha estudiado") || input.includes("que estudia") || input.includes("donde estudio") || input.includes("donde estudia") || input.includes("titulacion"))
+    return "🎓 Alejandro es <strong>Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</strong>. Estudió en el <strong>I.E.S. Martín Rivero</strong> y actualmente en el <strong>I.E.S. Medac</strong>. También tiene formación en <strong>electricidad</strong> y cursos en <strong>Java, Cloud Computing, Ciberseguridad, Python y IA Generativa</strong> Actualmente formandose en lenguajes como Cobol, NodeJs, TypeScript, REAC y Java.";
+
+  // --- PROYECTOS / PORTAFOLIO ---
+  if (input.includes("proyecto") || input.includes("proyectos") || input.includes("portfolio") || input.includes("portafolio") || input.includes("trabajos") || input.includes("qué ha hecho") || input.includes("que ha creado") || input.includes("que desarrolla"))
+    return "🧩 En la sección <strong>'Proyectos'</strong> puedes ver los trabajos de Alejandro: <strong>Ajedrez con IA</strong>, <strong>Tetris JS</strong>, <strong>Snake</strong>, <strong>Pinball</strong> y una <strong>Pokédex en React + Vite + TailwindCSS</strong>.";
+
+  // --- GITHUB / REPOSITORIOS ---
+  if (input.includes("github") || input.includes("repositorio") || input.includes("repositorios") || input.includes("codigo") || input.includes("código fuente") || input.includes("proyectos github") || input.includes("ver github") || input.includes("repos"))
+    return "💻 En su perfil de <a href='https://github.com/AlejandroGB95' target='_blank'>GitHub</a> encontrarás proyectos personales como <strong>Ajedrez con IA</strong>, <strong>Tetris</strong>, <strong>Snake</strong> y una <strong>Pokédex hecha con React y Vite</strong>. También sube ejemplos en <strong>Java, Python, Django y PHP</strong>.";
+
+  // --- HABILIDADES / TECNOLOGÍAS ---
+  if (input.includes("habilidad") || input.includes("skills") || input.includes("tecnologia") || input.includes("tecnologías") || input.includes("lenguajes") || input.includes("lenguaje de programacion") || input.includes("que domina") || input.includes("conocimientos"))
+    return "💡 Domina <strong>HTML, CSS, JavaScript, React, Java, Python, Django, PHP, SQL y Cobol</strong>. Además maneja herramientas como <strong>VS Code, NetBeans, Eclipse, GitHub y Oracle</strong>.";
+
+  // --- EXPERIENCIA ---
+  if (input.includes("experiencia") || input.includes("trabajo anterior") || input.includes("laboral") || input.includes("ha trabajado"))
+    return "💼 Alejandro cuenta con experiencia práctica en proyectos laborales, personales y académicos. Ha trabajado 4 meses para Fundación Medac Zaitec en un proyecto para la Junta de Andalucia con los lenguajes <strong>HTML, CSS, JavaScript, Java, Python, Django</strong> y <strong>PHP</strong>, aplicando buenas prácticas y metodologías ágiles. Además cuenta con proyectos personales como el portafolio, pagina web de Anime, pagina web de pokedex pokemon con reac y tailwindCss entre otros para ver más puedes ir a su Github.";
+
+  // --- LINKEDIN ---
+  if (input.includes("linkedin") || input.includes("perfil profesional"))
+    return "🔗 Puedes visitar su perfil profesional aquí: <a href='https://www.linkedin.com/in/alejandro-garc%C3%ADa-ben%C3%ADtez-desarrolladorweb/' target='_blank'>linkedin.com/in/alejandro-garcía-benítez-desarrolladorweb</a>";
+
+  // --- CONTACTO ---
+  if (input.includes("contact") || input.includes("email") || input.includes("correo") || input.includes("formulario") || input.includes("mensaje"))
+    return "📬 Puedes contactar con Alejandro desde el <strong>Formulario de contacto laboral</strong> al final de esta página o mediante su <a href='https://www.linkedin.com/in/alejandro-garc%C3%ADa-ben%C3%ADtez-desarrolladorweb/' target='_blank'>LinkedIn</a>.";
+
+   // --- Que esta haciendo ahora ---
+  if (input.includes("ahora") || input.includes("estudiando ahora") || input.includes("que esta haciendo ahora") || input.includes("que lenguajes esta estudiando ahora") || input.includes("ahora mismo que esta estudiando"))
+    return " Ahora mismo esta aprendiendo varios lenguajes de programación para una mayor empleabilidad ya que lo que busca es su primer trabajo en los lenguajes que esta estudiando se encuentran <strong>Reac, NodeJS, TypeScript, Cobol, Java y librerias y Framework. Además de seguir realizando cursos sbre IA, Java, SQL etc.</strong>.";
+  
+  // --- QUIÉN ES / PRESENTACIÓN ---
+  if (input.includes("quien es") || input.includes("quién es") || input.includes("eres") || input.includes("alejandro") || input.includes("presentate") || input.includes("creador") || input.includes("autor") || input.includes("de quien es") || input.includes("quien lo hizo"))
+    return "👨‍💻 <strong>Alejandro García Benítez</strong> es un <strong>Desarrollador FullStack Junior</strong> apasionado por la tecnología, el aprendizaje constante y la creación de soluciones web modernas y funcionales.";
+
+  // --- OBJETIVO / METAS ---
+  if (input.includes("objetivo") || input.includes("meta") || input.includes("busca") || input.includes(" que busca") || input.includes("aspiracion") || input.includes("que quiere"))
+    return "🚀 Su objetivo es encontrar su primer trabajo como <strong>Desarrollador Web FullStack / Desarrollador Web Back-end / Desarrollador Web Front-end</strong> y aportar valor en proyectos innovadores con impacto real. Además de seguir formandose para poder aportar desde un inicio a cualquier tipo de empresa y lenguaje. ";
+
+  // --- IDIOMAS ---
+  if (input.includes("idioma") || input.includes("inglés") || input.includes("english") || input.includes("idiomas"))
+    return "🌍 Tiene conocimientos de <strong>inglés técnico</strong> orientado al desarrollo web y a la comprensión de documentación.";
+
+  // --- UBICACIÓN ---
+  if (input.includes("donde vive") || input.includes("ubicacion") || input.includes("localizacion") || input.includes("residencia") || input.includes("pais"))
+    return "📍 Vive en <strong>España</strong> 🇪🇸 y está disponible tanto para trabajo remoto como presencial.";
+
+  // --- Edad ---
+  if (input.includes("edad") || input.includes("cuantos años tiene") || input.includes("que edad tiene") || input.includes("que años tiene") || input.includes("años"))
+    return "Tiene 29 años, cumple los 30 años el 21 de noviembre de 2025, es Escorpio hasta la medula.";
+
+  // --- Como Persona ---
+  if (input.includes("Como es") || input.includes("que personalidad tiene") || input.includes("como es en persona") || input.includes("Es un tio apañado") || input.includes("como es trabajando"))
+    return "Alejandro es una persona amable, que intenta de tratar a todo el mundo con amabilidad y respeto. Es un hombre con ganas de trabajar, inquieto y que le gusta probar e intentar proyectos innovadores. Es una persona curiosa, observadora, nerviosa y con mucha energia. Es muy positivo y muy risueño/ bromista.";
+
+
+  // --- PERSONALIDAD / VALORES ---
+  if (input.includes("personalidad") || input.includes("valores") || input.includes("como es") || input.includes("caracter"))
+    return "💫 Es una persona paciente, ética, responsable, observador, curioso, positivo, gracioso, alegre, buen compañero, amistoso, trabajador, cabezota, con caracter, amable, energico y con gran capacidad de aprendizaje. Le motiva el trabajo en equipo y la mejora continua.";
+
+  // --- HERRAMIENTAS ---
+  if (input.includes("herramienta") || input.includes("software") || input.includes("editor") || input.includes("entorno"))
+    return "🛠️ Utiliza <strong>Visual Studio Code</strong>, <strong>NetBeans</strong>, <strong>Eclipse</strong>, <strong>GitHub</strong> y <strong>Oracle</strong> como herramientas principales.";
+
+  // --- DEFAULT (cuando no entiende la pregunta) ---
+  return "🤖 No estoy seguro de eso, pero puedo ayudarte con información sobre su:<br><br>📄 <strong>CV</strong><br>🎓 <strong>Formación</strong><br> <strong>Personalidad</strong><br> <strong>Edad</strong><br> <strong>Objetivo</strong><br> 🧩 <strong>Proyectos</strong><br>💻 <strong>GitHub</strong><br>💡 <strong>Habilidades</strong><br>💼 <strong>Experiencia</strong><br>🔗 <strong>LinkedIn</strong><br>📬 <strong>Contacto</strong><br>🌍 <strong>Idiomas</strong><br>⚙️ <strong>Herramientas</strong><br><br>¿Sobre qué te gustaría saber más?";
+}
+
+
+});
+
+// ==== CHATBOT DE INFORMACIÓN LABORAL ====

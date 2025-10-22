@@ -126,87 +126,23 @@
     <h1 class="intro-text" id="nombre-portafolio">Alejandro  García  Benítez</h1> 
     <p class="subtitle futuristic-text" class="subtitle">Desarrollador FullStack Developer Junior 👨‍💻| Portafolio</p>
 
-    <div class="laptop-container">
-  <svg class="laptop-svg" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">
-    <!-- Borde exterior transparente (solo stroke) -->
-    <rect x="4" y="8" width="56" height="32" rx="4" ry="4" fill="none" stroke="#0ff" stroke-width="2"/>
+  <!-- CHATBOT DE INFORMACIÓN LABORAL -->
+  <div class="chatbot-container">
+    <div class="chat-header">
+      🤖 Asistente de Alejandro García Benítez
+    </div>
 
-    <!-- Pantalla con gradiente -->
-    <defs>
-      <linearGradient id="screenGradient" x1="0" y1="0" x2="1" y2="1">
-         <stop offset="0%" stop-color="rgba(0,255,255,0.05)"/>
-    <stop offset="100%" stop-color="rgba(0,255,255,0.05)"/>
-      </linearGradient>
-    </defs>
-    <rect x="6" y="10" width="52" height="28" rx="2" ry="2" fill="url(#screenGradient)" filter="drop-shadow(0 0 6px #0ff)"/>
+    <div class="chat-body" id="chat-body">
+      <div class="bot-message">¡Hola! Soy el asistente virtual de Alejandro 😄<br>
+      Puedo ayudarte con información sobre su CV, proyectos, formación, personalidad, experiencia, objetivos, habilidades o contacto e incluso como persona. ¿Qué quieres saber?</div>
+    </div>
 
-    <!-- Base portátil -->
-    <rect x="3" y="40" width="58" height="6"  rx="2" fill="#0ff"/>
-
-    <!-- Teclas (3 filas) -->
-    <g class="keys" fill="#111" stroke="#0ff" stroke-width="0.5">
-      <!-- Fila 1 -->
-      <rect x="6" y="41" width="4" height="2" rx="0.6"/>
-      <text x="8" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">Q</text>
-
-      <rect x="12" y="41" width="4" height="2" rx="0.6"/>
-      <text x="14" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">W</text>
-
-      <rect x="18" y="41" width="4" height="2" rx="0.6"/>
-      <text x="20" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">E</text>
-
-      <rect x="24" y="41" width="4" height="2" rx="0.6"/>
-      <text x="26" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">R</text>
-
-      <rect x="30" y="41" width="4" height="2" rx="0.6"/>
-      <text x="32" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">T</text>
-
-      <rect x="36" y="41" width="4" height="2" rx="0.6"/>
-      <text x="38" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">Y</text>
-
-      <rect x="42" y="41" width="4" height="2" rx="0.6"/>
-      <text x="44" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">U</text>
-
-      <rect x="48" y="41" width="4" height="2" rx="0.6"/>
-      <text x="50" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">I</text>
-
-      <rect x="54" y="41" width="4" height="2" rx="0.6"/>
-      <text x="56" y="42.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">O</text>
-      <!-- Fila 2 -->
-      <rect x="6" y="43" width="4" height="2" rx="0.6"/>
-      <text x="8" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">Q</text>
-
-      <rect x="12" y="43" width="4" height="2" rx="0.6"/>
-      <text x="14" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">W</text>
-
-      <rect x="18" y="43" width="4" height="2" rx="0.6"/>
-      <text x="20" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">E</text>
-
-      <rect x="24" y="43" width="4" height="2" rx="0.6"/>
-      <text x="26" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">R</text>
-
-      <rect x="30" y="43" width="4" height="2" rx="0.6"/>
-      <text x="32" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">T</text>
-
-      <rect x="36" y="43" width="4" height="2" rx="0.6"/>
-      <text x="38" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">Y</text>
-
-      <rect x="42" y="43" width="4" height="2" rx="0.6"/>
-      <text x="44" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">U</text>
-
-      <rect x="48" y="43" width="4" height="2" rx="0.6"/>
-      <text x="50" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">I</text>
-
-      <rect x="54" y="43" width="4" height="2" rx="0.6"/>
-      <text x="56" y="43.5" font-size="1" fill="#0ff" text-anchor="middle" dominant-baseline="middle">O</text>
-    </g>
-  </svg>
-
-  <!-- Texto dentro de la pantalla -->
-  <div class="laptop-screen-text" id="typed-container">
-    <span id="typed-text" class="typed-text"></span><span class="cursor">|</span>
+    <form id="chat-form" class="chat-input-area">
+      <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off" />
+      <button type="submit">Enviar</button>
+    </form>
   </div>
-</div>
+
   </header>
 
  <section id="sobre-mi" class="about-me">
