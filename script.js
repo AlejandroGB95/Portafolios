@@ -449,7 +449,7 @@ function getResponse(input) {
 
   // --- FORMACIÓN / ESTUDIOS ---
   if (input.includes("formacion") || input.includes("estudios") || input.includes("educacion") || input.includes("qué ha estudiado") || input.includes("que estudia") || input.includes("donde estudio") || input.includes("donde estudia") || input.includes("titulacion"))
-    return "🎓 Alejandro es <strong>Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</strong>. Estudió en el <strong>I.E.S. Martín Rivero (Año 2023 - 2024)</strong> y terminó en el <strong>I.E.S. Medac (Año 2024 - 2025).Terminando las prácticas en Fundación Medac Zaitec con un proyecto para la Junta de Andalucia con Python como lenguaje principal con una duración de 4 meses de experiencia</strong>. También tiene formación en <strong>electricidad</strong> y cursos en <strong>Java, Cloud Computing, Ciberseguridad, Python y IA Generativa</strong> Actualmente formandose en lenguajes como Cobol, NodeJs, TypeScript, REAC y Java.";
+    return "🎓 Alejandro es <strong>Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</strong>. Estudió en el <strong>I.E.S. Martín Rivero</strong> y actualmente en el <strong>I.E.S. Medac</strong>. También tiene formación en <strong>electricidad</strong> y cursos en <strong>Java, Cloud Computing, Ciberseguridad, Python y IA Generativa</strong> Actualmente formandose en lenguajes como Cobol, NodeJs, TypeScript, REAC y Java.";
 
   // --- PROYECTOS / PORTAFOLIO ---
   if (input.includes("proyecto") || input.includes("proyectos") || input.includes("portfolio") || input.includes("portafolio") || input.includes("trabajos") || input.includes("qué ha hecho") || input.includes("que ha creado") || input.includes("que desarrolla"))
@@ -461,11 +461,11 @@ function getResponse(input) {
 
   // --- HABILIDADES / TECNOLOGÍAS ---
   if (input.includes("habilidad") || input.includes("skills") || input.includes("tecnologia") || input.includes("tecnologías") || input.includes("lenguajes") || input.includes("lenguaje de programacion") || input.includes("que domina") || input.includes("conocimientos"))
-    return "💡 Domina <strong>HTML5, CSS3, JavaScript, React, Java, Python, Django, PHP, SQL, Ajax, Jquery, Bootstrap y  aprendiendo Cobol</strong>. Además maneja herramientas como <strong>VS Code, NetBeans, Eclipse, GitHub, Oracle y aprendiendo Open Cobol</strong>.";
+    return "💡 Domina <strong>HTML, CSS, JavaScript, React, Java, Python, Django, PHP, SQL y Cobol</strong>. Además maneja herramientas como <strong>VS Code, NetBeans, Eclipse, GitHub y Oracle</strong>.";
 
   // --- EXPERIENCIA ---
   if (input.includes("experiencia") || input.includes("trabajo anterior") || input.includes("laboral") || input.includes("ha trabajado"))
-    return "💼 Alejandro cuenta con experiencia práctica en proyectos laborales, personales y académicos. Ha trabajado 4 meses para Fundación Medac Zaitec en un proyecto para la Junta de Andalucia con los lenguajes <strong>HTML5, CSS3, JavaScript, Java, Python, Django, Ajax, Bootstrap y Jquery</strong>, aplicando buenas prácticas y metodologías ágiles. Además cuenta con proyectos personales como el portafolio, pagina web de Anime, pagina web de pokedex pokemon con Reac y TailwindCss entre otros como una aplicacion con back-end que es un administrador de tareas aun no terminado para ver más puedes ir a su Github.";
+    return "💼 Alejandro cuenta con experiencia práctica en proyectos laborales, personales y académicos. Ha trabajado 4 meses para Fundación Medac Zaitec en un proyecto para la Junta de Andalucia con los lenguajes <strong>HTML, CSS, JavaScript, Java, Python, Django</strong> y <strong>PHP</strong>, aplicando buenas prácticas y metodologías ágiles. Además cuenta con proyectos personales como el portafolio, pagina web de Anime, pagina web de pokedex pokemon con reac y tailwindCss entre otros para ver más puedes ir a su Github.";
 
   // --- LINKEDIN ---
   if (input.includes("linkedin") || input.includes("perfil profesional"))
@@ -477,7 +477,7 @@ function getResponse(input) {
 
    // --- Que esta haciendo ahora ---
   if (input.includes("ahora") || input.includes("estudiando ahora") || input.includes("que esta haciendo ahora") || input.includes("que lenguajes esta estudiando ahora") || input.includes("ahora mismo que esta estudiando"))
-    return " Ahora mismo esta aprendiendo varios lenguajes de programación para una mayor empleabilidad ya que lo que busca es su primer trabajo en los lenguajes que esta estudiando se encuentran <strong>Reac, NodeJS, TypeScript, Cobol, Java y librerias y Framework. Además de seguir realizando cursos sobre IA, Java, SQL etc.</strong>.";
+    return " Ahora mismo esta aprendiendo varios lenguajes de programación para una mayor empleabilidad ya que lo que busca es su primer trabajo en los lenguajes que esta estudiando se encuentran <strong>Reac, NodeJS, TypeScript, Cobol, Java y librerias y Framework. Además de seguir realizando cursos sbre IA, Java, SQL etc.</strong>.";
   
   // --- QUIÉN ES / PRESENTACIÓN ---
   if (input.includes("quien es") || input.includes("quién es") || input.includes("eres") || input.includes("alejandro") || input.includes("presentate") || input.includes("creador") || input.includes("autor") || input.includes("de quien es") || input.includes("quien lo hizo"))
