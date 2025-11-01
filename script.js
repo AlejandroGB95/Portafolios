@@ -477,7 +477,7 @@ function getResponse(input) {
 
    // --- Que esta haciendo ahora ---
   if (input.includes("ahora") || input.includes("estudiando ahora") || input.includes("que esta haciendo ahora") || input.includes("que lenguajes esta estudiando ahora") || input.includes("ahora mismo que esta estudiando"))
-    return " Ahora mismo esta aprendiendo varios lenguajes de programación para una mayor empleabilidad ya que lo que busca es su primer trabajo en los lenguajes que esta estudiando se encuentran <strong>Reac, NodeJS, TypeScript, Cobol, Java y librerias y Framework. Además de seguir realizando cursos sbre IA, Java, SQL etc.</strong>.";
+    return " Ahora mismo esta aprendiendo varios lenguajes de programación para una mayor empleabilidad ya que lo que busca es su primer trabajo en los lenguajes que esta estudiando se encuentran <strong>Reac, NodeJS, TypeScript, Cobol, Java y librerias y Framework. Además de seguir realizando cursos sobre IA, Java, SQL etc.</strong>.";
   
   // --- QUIÉN ES / PRESENTACIÓN ---
   if (input.includes("quien es") || input.includes("quién es") || input.includes("eres") || input.includes("alejandro") || input.includes("presentate") || input.includes("creador") || input.includes("autor") || input.includes("de quien es") || input.includes("quien lo hizo"))

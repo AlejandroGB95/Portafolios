@@ -1023,3 +1023,23 @@ body.light-mode #mode-toggle {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@media screen and (max-width: 768px) {
+  .hero {height: 130vh;
+  }
+  
+}
+
+/* Pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  #nombre-portafolio {
+    font-size: 2.3rem;
+    flex-direction: column; /* Pone cada parte del nombre en una línea */
+    gap: 0.2rem;
+    margin-top: 100px;
+  }
+}
+
+h1.intro-text span {
+  margin-left: 7px;
+}
