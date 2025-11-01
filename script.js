@@ -516,7 +516,55 @@ function getResponse(input) {
   return "🤖 No estoy seguro de eso, pero puedo ayudarte con información sobre su:<br><br>📄 <strong>CV</strong><br>🎓 <strong>Formación</strong><br> <strong>Personalidad</strong><br> <strong>Edad</strong><br> <strong>Objetivo</strong><br> 🧩 <strong>Proyectos</strong><br>💻 <strong>GitHub</strong><br>💡 <strong>Habilidades</strong><br>💼 <strong>Experiencia</strong><br>🔗 <strong>LinkedIn</strong><br>📬 <strong>Contacto</strong><br>🌍 <strong>Idiomas</strong><br>⚙️ <strong>Herramientas</strong><br><br>¿Sobre qué te gustaría saber más?";
 }
 
-
 });
 
-// ==== CHATBOT DE INFORMACIÓN LABORAL ====
+// ==== CHATBOT DE INFORMACIÓN LABORAL ==== 
+
+// ==== CLIMA LOCAL SEGÚN GEOLOCALIZACIÓN Tiempo ====
+  document.addEventListener("DOMContentLoaded", () => {
+    const weatherIcon = document.getElementById("weather-icon");
+    const temperature = document.getElementById("temperature");
+    const condition = document.getElementById("condition");
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      condition.textContent = "Sin geolocalización 😞";
+    }
+
+    function success(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Usa la API gratuita de OpenWeatherMap
+      const apiKey = "d5619806c3c1900ce298037fb67edcce"; // 🔑 Reemplaza con tu clave (gratis en openweathermap.org)
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const temp = Math.round(data.main.temp);
+          const main = data.weather[0].main;
+          temperature.textContent = `${temp}°C`;
+
+          // Cambia el ícono según el clima
+          switch (main) {
+            case "Clear": weatherIcon.textContent = "☀️"; condition.textContent = "Despejado"; break;
+            case "Clouds": weatherIcon.textContent = "☁️"; condition.textContent = "Nublado"; break;
+            case "Rain": weatherIcon.textContent = "🌧️"; condition.textContent = "Lluvioso"; break;
+            case "Thunderstorm": weatherIcon.textContent = "⛈️"; condition.textContent = "Tormenta"; break;
+            case "Snow": weatherIcon.textContent = "❄️"; condition.textContent = "Nieve"; break;
+            default: weatherIcon.textContent = "🌤️"; condition.textContent = main;
+          }
+        })
+        .catch(() => {
+          condition.textContent = "Error al cargar clima 😕";
+        });
+    }
+
+    function error() {
+      condition.textContent = "Ubicación no disponible";
+    }
+  });
+
+// ==== CLIMA LOCAL SEGÚN GEOLOCALIZACIÓN Tiempo ====
