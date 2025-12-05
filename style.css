@@ -1040,6 +1040,15 @@ body.light-mode #mode-toggle {
   }
 }
 
+/* Pantallas pequeñas (móviles) */
+@media screen and (max-width: 1400px) {
+  #nombre-portafolio {
+    font-size: 2.8rem;
+    gap: 0.2rem;
+    margin-top: 250px;
+  }
+}
+
 h1.intro-text span {
   margin-left: 7px;
 }
