@@ -112,7 +112,7 @@ body {
   cursor: pointer;
   border-radius: 10px;
   transition: background 0.3s, color 0.3s;
-  font-size: 1.2rem;
+  font-size: 0.5rem;
   user-select: none;
   ;
 }
@@ -382,7 +382,7 @@ body.light-mode #mode-toggle {
     cursor: pointer;
     border-radius: 10px;
     transition: background 0.3s, color 0.3s;
-    font-size: 1.2rem;
+    font-size: 0.7rem;
     user-select: none;
     margin-top: 0; /* Asegura la alineación correcta en escritorio */
 }
@@ -778,7 +778,7 @@ body.light-mode #mode-toggle {
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #00ffff;
   text-shadow: 
     0 0 5px #00ffff, 
@@ -786,11 +786,11 @@ body.light-mode #mode-toggle {
     0 0 20px #00b3ff, 
     0 0 30px #00f0ff;
   gap: 0.8rem;
-  margin: 1rem auto;
+  margin-right: 0px;
 }
 
 .clock-widget .icon {
-  font-size: 1.6rem;
+  font-size: 1rem;
   animation: blink 1.2s infinite alternate;
 }
 
@@ -813,7 +813,7 @@ body.light-mode #mode-toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
 }
 
 /* Contenedor del reloj */
@@ -821,7 +821,7 @@ body.light-mode #mode-toggle {
   display: flex;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #00ffff;
   text-shadow: 0 0 5px #00ffff, 0 0 10px #00b3ff;
   gap: 0.5rem;
@@ -831,7 +831,7 @@ body.light-mode #mode-toggle {
 
 /* Opcional: parpadeo del icono */
 .clock-widget .icon {
-  font-size: 1.2rem;
+  font-size: 1rem;
   animation: blink 1.2s infinite alternate;
 }
 @keyframes blink {
@@ -1040,7 +1040,7 @@ body.light-mode #mode-toggle {
   }
 }
 
-/* Pantallas pequeñas (móviles) */
+/* Pantallas grandes (pc) */
 @media screen and (max-width: 1400px) {
   #nombre-portafolio {
     font-size: 2.8rem;
@@ -1058,7 +1058,7 @@ h1.intro-text span {
   align-items: center;
   gap: 6px;
   color: #00ffff;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   background: rgba(10, 10, 10, 0.85);
   padding: 5px 10px;
   border-radius: 10px;
@@ -1071,7 +1071,7 @@ h1.intro-text span {
 }
 
 #weather-icon {
-  font-size: 2.2rem;
+  font-size: 1rem;
   filter: drop-shadow(0 0 6px #00ffff);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
