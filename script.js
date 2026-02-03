@@ -131,26 +131,35 @@ document.addEventListener('mousemove', (e) => {
   const pauseBetween = 1500;
 
   function type() {
-    const currentText = textArray[textIndex];
-    if (isDeleting) {
-      typedText.textContent = currentText.substring(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % textArray.length;
-      }
-    } else {
-      typedText.textContent = currentText.substring(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === currentText.length) {
-        isDeleting = true;
-        setTimeout(type, pauseBetween);
-        return;
-      }
+  // 🔴 si el elemento no existe → salir sin romper nada
+  if (!typedText) return;
+
+  const currentText = textArray[textIndex];
+
+  if (isDeleting) {
+    typedText.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % textArray.length;
     }
-    const delay = isDeleting ? deletingSpeed : typingSpeed;
-    setTimeout(type, delay);
+
+  } else {
+    typedText.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentText.length) {
+      isDeleting = true;
+      setTimeout(type, pauseBetween);
+      return;
+    }
   }
+
+  const delay = isDeleting ? deletingSpeed : typingSpeed;
+  setTimeout(type, delay);
+}
+
 
 document.addEventListener('DOMContentLoaded', type);
 
@@ -337,7 +346,7 @@ document.querySelectorAll(".skill-card").forEach(card => {
 });
 
 
-
+/*
 // prueba de la hora y geolacaliza donde esta el usuario
 // Actualiza la hora del PC
 function updateClock() {
@@ -380,6 +389,7 @@ function getLocation() {
     locationEl.textContent = "Geolocalización no soportada";
   }
 }
+  
 // Detecta la ubicación
 // Llamar la función
 getLocation();
@@ -399,12 +409,15 @@ gsap.utils.toArray('.about-text p').forEach((block, i) => {
   });
 });
 //nuevo apartado sobre mi 
-
-// ==== CHATBOT DE INFORMACIÓN LABORAL ====
+*/
+// ==== CHATBOT  ====
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("chat-form");
   const input = document.getElementById("user-input");
   const chatBody = document.getElementById("chat-body");
+
+  // 👉 protección: si no existe, no rompe el JS
+  if (!form || !input || !chatBody) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -420,23 +433,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   });
 
-  function addMessage(sender, text) {
-    const msg = document.createElement("div");
-    msg.classList.add(sender === "user" ? "user-message" : "bot-message");
-    msg.innerHTML = text;
-    chatBody.appendChild(msg);
-    chatBody.scrollTop = chatBody.scrollHeight;
+ function addMessage(sender, text) {
+  const msg = document.createElement("div");
+  msg.classList.add(sender === "user" ? "user-message" : "bot-message");
+  msg.innerHTML = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
 
-    // (Opcional) leer en voz alta
-    if (sender === "bot") {
-      const speech = new SpeechSynthesisUtterance(text.replace(/<[^>]*>?/gm, ''));
-      speech.lang = "es-ES";
-      speech.rate = 1;
-      window.speechSynthesis.speak(speech);
-    }
+  // 🔊 Leer en voz alta SOLO mensajes del bot
+  if (sender === "bot" && "speechSynthesis" in window) {
+    const cleanText = text.replace(/<[^>]*>?/gm, ""); // quita HTML
+
+    const speech = new SpeechSynthesisUtterance(cleanText);
+    speech.lang = "es-ES";
+    speech.rate = 1;
+    speech.pitch = 1;
+
+    window.speechSynthesis.cancel(); // evita solaparse
+    window.speechSynthesis.speak(speech);
   }
+}
 
-function getResponse(input) {
+  function getResponse(input) {
   input = input.toLowerCase().trim();
 
   // --- SALUDOS ---
@@ -515,11 +533,11 @@ function getResponse(input) {
   // --- DEFAULT (cuando no entiende la pregunta) ---
   return "🤖 No estoy seguro de eso, pero puedo ayudarte con información sobre su:<br><br>📄 <strong>CV</strong><br>🎓 <strong>Formación</strong><br> <strong>Personalidad</strong><br> <strong>Edad</strong><br> <strong>Objetivo</strong><br> 🧩 <strong>Proyectos</strong><br>💻 <strong>GitHub</strong><br>💡 <strong>Habilidades</strong><br>💼 <strong>Experiencia</strong><br>🔗 <strong>LinkedIn</strong><br>📬 <strong>Contacto</strong><br>🌍 <strong>Idiomas</strong><br>⚙️ <strong>Herramientas</strong><br><br>¿Sobre qué te gustaría saber más?";
 }
-
+ 
 });
 
 // ==== CHATBOT DE INFORMACIÓN LABORAL ==== 
-
+/*
 // ==== CLIMA LOCAL SEGÚN GEOLOCALIZACIÓN Tiempo ====
   document.addEventListener("DOMContentLoaded", () => {
     const weatherIcon = document.getElementById("weather-icon");
@@ -566,5 +584,5 @@ function getResponse(input) {
       condition.textContent = "Ubicación no disponible";
     }
   });
-
+*/
 // ==== CLIMA LOCAL SEGÚN GEOLOCALIZACIÓN Tiempo ====
