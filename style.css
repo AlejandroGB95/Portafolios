@@ -16,7 +16,7 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; sc
     width: 100vw; height: 100vh;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(circle at 50% 50%, rgba(104, 40, 214, 0.1) 0%, transparent 80%);
+    background: radial-gradient(circle at 50% 50%, rgb(93, 48, 170) 0%, transparent 80%);
 }
 
 .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
@@ -167,6 +167,47 @@ input:focus { border-color: var(--accent); outline: none; }
 
 /* formulario */
 
+/* colores iconos contacto */
+
+/* Color Azul linkedin */
+.linkedin-icon i:hover {
+    color: #4883d1 !important; /* El color azul característico de su logo */
+    transform: translateY(-5px);
+}
+
+/* Color Blanco Github */
+.github-icon i:hover {
+    color: #ffffff !important; /* El color blanco característico de su logo */
+    transform: translateY(-5px);
+}
+
+/* Color Azul InfoJobs */
+.infojobs-icon i:hover {
+    color: #004381 !important;
+    transform: translateY(-5px);
+}
+
+/* Color Naranja/Rojo Tecnoempleo */
+.tecnoempleo-icon i:hover {
+    color: #e65100 !important; /* El color naranja característico de su logo */
+    transform: translateY(-5px);
+}
+
+/* Estilos generales para los iconos */
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Para que no se amontonen en móviles pequeños */
+}
+
+.social-links a i {
+    transition: all 0.3s ease;
+    font-size: 3.2rem;
+}
+/* colores iconos contacto */
+
+/* Codigos resposive pagina */
 @media (max-width: 768px) {
     .hero-flex { flex-direction: column-reverse; text-align: center; }
     .form-grid { grid-template-columns: 1fr; }
@@ -184,6 +225,7 @@ input:focus { border-color: var(--accent); outline: none; }
     cursor: pointer;
     z-index: 1001;
 }
+/* Ocultar el botón en pantallas grandes */
 
 @media (max-width: 768px) {
     .menu-toggle {
@@ -215,3 +257,4 @@ input:focus { border-color: var(--accent); outline: none; }
         margin: 15px 0;
     }
 }
+/* Codigos resposive pagina */
