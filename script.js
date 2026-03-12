@@ -44,3 +44,28 @@ form.addEventListener('submit', function(e) {
 });
 
 // formulario de contacto
+
+// menu hamburguesa
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Al hacer clic en la hamburguesa, abre el menú
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Cambia el icono de barras por una X al abrir
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Cerrar el menú automáticamente al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        });
+    });
+// menu hamburguesa
