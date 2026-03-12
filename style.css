@@ -16,7 +16,7 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; sc
     width: 100vw; height: 100vh;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 80%);
+    background: radial-gradient(circle at 50% 50%, rgba(104, 40, 214, 0.1) 0%, transparent 80%);
 }
 
 .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }

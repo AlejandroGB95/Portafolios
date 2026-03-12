@@ -4,35 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alejandro García | FullStack Dev</title>
+    <!-- 🔍 Como se ve la pagina cuando se la paso a alguien por enlace -->
+    <meta name="description" content="Portafolio de Alejandro García Benítez, Desarrollador FullStack Junior. Proyectos en Java, JavaScript, React, Python y más.">
+    <meta property="og:title" content="Portafolio | Alejandro García Benítez">
+    <meta property="og:description" content="Explora mis proyectos web y aplicaciones con tecnologías modernas.">
+    <meta property="og:image" content="https://alejandrogb95.github.io/Portafolios/imagen/vista-previa.png">
+    <meta property="og:url" content="https://alejandrogb95.github.io/Portafolios/">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- 🔍 Como se ve la pagina cuando se la paso a alguien por enlace -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google analitic tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YB3CTSENZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YB3CTSENZN');
+  </script>
+    <!-- Google analitic tag (gtag.js) -->
 </head>
 <body>
-
     <div id="glow"></div>
-
+    <!-- Cabecera del portafolio -->
     <nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">AG<span>B</span></div>
-        
-        <button class="menu-toggle" aria-label="Abrir menú">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="nav-container">
+            <div class="logo">AG<span>B</span></div>
+            
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="CV/CV_Alejandro_Garcia_2026.pdf" download>Descargar CV</a>
-            <a href="#sobre-mi">Sobre Mí</a>
-            <a href="#tecnologias">Tecnologías</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#formacion">Formación</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="CV/CV_Alejandro_Garcia_2026.pdf" download>Descargar CV</a>
+                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="#tecnologias">Tecnologías</a>
+                <a href="#experiencia">Experiencia</a>
+                <a href="#formacion">Formación</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
+    <!-- Cabecera del portafolio -->
+    <!-- Primer contenedor con el section de la presentación -->
     <main class="container">
         <section id="inicio" class="hero">
             <div class="hero-flex">
@@ -47,15 +66,19 @@
                 </div>
             </div>
         </section>
+        <!-- Primer contenedor con el section de la presentación -->
 
-       <section id="sobre-mi" class="section-padding">
+        <!-- Segundo contenedor con el section sobre mí -->
+        <section id="sobre-mi" class="section-padding">
             <h2 class="label">👤 Sobre mí</h2>
             <div class="about-box">
                 <p>Desarrollador <strong>Full Stack</strong> enfocado en <strong>Python y Django</strong>, con una sólida base en <strong>Java</strong> y despliegue de aplicaciones web. Me especializo en la creación de herramientas para la gestión de datos y la optimización de flujos de trabajo mediante el uso estratégico de la <strong>IA</strong>.</p>
                 <p>Mi enfoque está orientado a soluciones escalables y al mantenimiento preventivo de sistemas. Me defino como alguien <strong>leal, ético y trabajador</strong>, comprometido con aportar ideas innovadoras y código limpio en cada proyecto técnico.</p>
             </div>
         </section>
+        <!-- Segundo contenedor con el section sobre mí -->
 
+        <!-- Tercer contenedor con el section Tecnologias -->
         <section id="tecnologias" class="section-padding">
             <h2 class="label">💻 Tecnologías</h2>
             <div class="skills-grid">
@@ -121,7 +144,9 @@
                 </div>
             </div>
         </section>
+        <!-- Tercer contenedor con el section Tecnologias -->
 
+        <!-- Cuarto contenedor con el section Experiencia Profesional -->
        <section id="experiencia" class="section-padding">
             <h2 class="label">💼 Experiencia Profesional</h2>
             <div class="projects-vertical">
@@ -153,7 +178,9 @@
                 </div>
             </div>
         </section>
+        <!-- Cuarto contenedor con el section Experiencia Profesional -->
 
+        <!-- Quinto contenedor con el section Formación-->
         <section id="formacion" class="section-padding">
             <h2 class="label">🎓 Formación Académica</h2>
             <div class="projects-vertical">
@@ -193,7 +220,9 @@
                 </div>
             </div>
         </section>
+        <!-- Quinto contenedor con el section Formación-->
 
+        <!-- Sexto contenedor con el section Proyectos-->
         <section id="proyectos" class="section-padding">
             <h2 class="label">🚀 Proyectos Freelance</h2>
             <div class="projects-vertical">
@@ -214,58 +243,62 @@
                 </div>
             </div>
         </section>
+        <!-- Sexto contenedor con el section Proyectos-->
 
+        <!-- Septimo contenedor con el section Contactos-->
        <section id="contacto" class="section-padding">
-    <h2 class="label">💼 Contacto </h2>
-    <form id="form-contacto" action="https://formspree.io/f/xrblvlvw" method="POST">
-        
-        <div class="form-grid">
-            <div class="form-group">
-                <label for="nombre" class="sr-only">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre de contacto" required class="contact-input">
-            </div>
-            
-            <div class="form-group">
-                <label for="email" class="sr-only">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Correo electronico" required class="contact-input">
-            </div>
-            
-            <div class="form-group">
-                <label for="empresa" class="sr-only">Empresa</label>
-                <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa que me contacta" class="contact-input">
-            </div>
-            
-            <div class="form-group">
-                <label for="fecha" class="sr-only">Fecha</label>
-                <input type="date" id="fecha" name="fecha" min="2025-08-18" max="2030-12-31" class="contact-input">
-            </div>
-        </div>
-        
-        <div class="form-group" style="margin-top: 15px;">
-            <label for="message" class="sr-only">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Si estas interesado en contactarme para una oferta de trabajo rellena el siguiente formulario y clica sobre el boton Enviar. Intentare responder lo más pronto posible, muchas gracias." required class="contact-textarea"></textarea>
-        </div>
-        
-        <div class="form-buttons" style="margin-top: 20px; display: flex; gap: 15px;">
-            <button type="submit" class="contact-button">Enviar</button>
-            <button type="reset" class="contact-button reset-button">Limpiar</button>
-        </div>
+            <h2 class="label">💼 Contacto </h2>
+            <form id="form-contacto" action="https://formspree.io/f/xrblvlvw" method="POST">
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre" class="sr-only">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre de contacto" required class="contact-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Correo electronico" required class="contact-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa" class="sr-only">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa que me contacta" class="contact-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fecha" class="sr-only">Fecha</label>
+                        <input type="date" id="fecha" name="fecha" min="2025-08-18" max="2030-12-31" class="contact-input">
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 15px;">
+                    <label for="message" class="sr-only">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Si estas interesado en contactarme para una oferta de trabajo rellena el siguiente formulario y clica sobre el boton Enviar. Intentare responder lo más pronto posible, muchas gracias." required class="contact-textarea"></textarea>
+                </div>
+                
+                <div class="form-buttons" style="margin-top: 20px; display: flex; gap: 15px;">
+                    <button type="submit" class="contact-button">Enviar</button>
+                    <button type="reset" class="contact-button reset-button">Limpiar</button>
+                </div>
 
-        <p id="form-success" style="
-            opacity:0; 
-            transform: translateY(20px); 
-            color: var(--accent); 
-            margin-top:15px; 
-            font-weight:bold; 
-            transition: opacity 0.6s, transform 0.6s;
-            text-align: center;
-        ">
-            ¡Gracias por tu mensaje! Serás redirigido a Formspree.
-        </p>
-    </form>
-</section>
+                <p id="form-success" style="
+                    opacity:0; 
+                    transform: translateY(20px); 
+                    color: var(--accent); 
+                    margin-top:15px; 
+                    font-weight:bold; 
+                    transition: opacity 0.6s, transform 0.6s;
+                    text-align: center;
+                ">
+                    ¡Gracias por tu mensaje! Serás redirigido a Formspree.
+                </p>
+            </form>
+        </section>
+        <!-- Septimo contenedor con el section Contactos-->
     </main>
 
+    <!-- Empieza el footer o pie de pagina-->
     <footer class="clean-footer">
         <div class="social-footer">
             <a href="https://github.com/AlejandroGB95" target="_blank"><i class="fab fa-github"></i></a>
@@ -275,7 +308,7 @@
         </div>
         <p>© 2026 <span>Alejandro García Benítez</span>. Todos los derechos reservados.</p>
     </footer>
-
+    <!-- Acaba el footer o pie de pagina-->
     <script src="script.js"></script>
 </body>
 </html>
