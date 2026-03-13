@@ -207,6 +207,78 @@ input:focus { border-color: var(--accent); outline: none; }
 }
 /* colores iconos contacto */
 
+/* Estilos para Proyectos Secundarios */
+.secondary-projects {
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.02); /* Fondo muy sutil para diferenciar */
+    text-align: center;
+}
+
+.section-subtitle {
+    color: #888;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+}
+
+.mini-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mini-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mini-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent); /* Tu color morado */
+    background: rgba(124, 58, 237, 0.05);
+}
+
+.mini-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.mini-card p {
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.mini-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.mini-link:hover {
+    letter-spacing: 1px;
+}
+
+/* Estilos para Proyectos Secundarios */
+/* Ajuste móvil */
+@media (max-width: 480px) {
+    .mini-projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Codigos resposive pagina */
 @media (max-width: 768px) {
     .hero-flex { flex-direction: column-reverse; text-align: center; }
