@@ -832,6 +832,47 @@
     <!-- LOGICA JAVASCRIPT -->
     <script>
 
+
+
+    function switchVideo(id) {
+        const player = document.getElementById('directIframePlayer');
+        const header = document.getElementById('directMainHeader');
+        const desc = document.getElementById('directVideoDesc');
+        
+        // Define tus fuentes de video aquí
+        const videos = {
+            'za': {
+                url: "https://www.youtube-nocookie.com/embed/11P-S88xXOk?autoplay=1",
+                title: "Tráiler Oficial: Leyendas Pokémon: Z-A",
+                desc: "Avance oficial del próximo gran título de la saga ambientado en la remodelación urbana de Ciudad Luminalia."
+            },
+            'sv': {
+                url: "https://www.youtube-nocookie.com/embed/Y4-mJ4W3-qM?autoplay=1",
+                title: "Pokémon Escarlata y Púrpura: El Tesoro del Área Cero",
+                desc: "Explora la expansión completa de la novena generación y sus misterios legendarios."
+            },
+            'worlds': {
+                url: "https://www.youtube-nocookie.com/embed/fHkR8y-1qD0?autoplay=1",
+                title: "Campeonatos Mundiales Pokémon 2024",
+                desc: "Revive las partidas más intensas del torneo mundial de VGC."
+            },
+            'live_presents': {
+                url: "https://www.youtube-nocookie.com/embed/live_stream?channel=UC4lE6S1h54s3x8X8X8X8X8X&autoplay=1",
+                title: "🔴 Emisión en Directo (Pokémon Oficial)",
+                desc: "Señal en vivo del canal oficial. Si no hay directo, verás el último vídeo publicado."
+            }
+        };
+
+        if (videos[id]) {
+            player.src = videos[id].url;
+            header.innerText = videos[id].title;
+            desc.innerText = "ℹ️ " + videos[id].desc;
+        }
+    }
+
+
+    
+
         // --- BIBLIOTECA DE VÍDEOS HÍBRIDA (STANDBY TRAILERS & DIRECT LIVE) ---
         const videoLibrary = {
             za: {
