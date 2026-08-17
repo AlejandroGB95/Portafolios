@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Juego de Ajedrez Realizado por Alejandro García Benítez</title>
+<link rel="stylesheet" href="estilo_ajedrez.css" />
+<script defer src="Ajedrez_movimiento.js"></script>
+</head>
+<body>
+
+<div id="estado">Esperando mover</div>
+<div class="contenedor-juego">
+    <div id="tablero-contenedor">
+        <div id="tablero"></div>
+    </div>
+    <div id="chat-historial"></div>
+</div>
+<div>
+    <label for="nivel">Nivel de la IA: </label>
+    <select id="nivel">
+        <option value="0">Fácil</option>
+        <option value="1">Medio</option>
+        <option value="2">Difícil</option>
+    </select>
+</div>
+<button onclick="nuevoJuego()">Nuevo juego</button>
+
+<footer>
+    <p>&copy; 2025 Alejandro García Benítez</p>
+</footer>
+</body>
+</html>
